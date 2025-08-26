@@ -15,8 +15,34 @@ logs/
 parallel_*.pid
 
 # Large crawl outputs (don’t version control)
-openarchives_results/
+openarchives_results/backups
+openarchives_results/shards
 openarchives_data/
+
+# Archive buckets
+scripts/_archive/
+scraper/_archive/
+
+# Heavy data artifacts
+*.parquet
+
+# Analysis outputs
+analysis/**/*.json
+analysis/**/*.parquet
+analysis/**/*.png
+analysis/**/__pycache__/
+
+# Snapshots (optional; keep locally)
+snapshots/
+
+# Tool caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Local env/config
+.env
+.envrc
 
 # Editor/IDE
 .idea/
