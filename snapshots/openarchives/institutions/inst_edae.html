@@ -1,0 +1,790 @@
+<!doctype html>
+
+<html lang="el">
+<head>
+
+<!-- Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+	<script async
+		src="https://www.googletagmanager.com/gtag/js?id=G-PN5EC3N1E3"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-PN5EC3N1E3');
+	</script>
+<!-- End Google Tag Manager -->
+
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/jquery-2.1.3.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/js.cookie.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/common.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/jquery.dynamiclist.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/js/common-crud.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/js/jquery.blockUI.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/google-code-prettify/prettify.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/js/vkbeautify.0.99.00.beta.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/jquery.twbsPagination.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/select2.full.min.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/js/i18n/el.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/bootstrap3-typeahead.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/slick/slick.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/bootstrap-toggle.js"></script>
+
+<link rel="shortcut icon"
+	href='/aggregator-openarchives/resources/1.46/img/favicon.ico'
+	type="image/x-icon">
+<link rel="icon"
+	href='/aggregator-openarchives/resources/1.46/img/favicon.ico'
+	type="image/x-icon">
+
+
+<link
+	href="/aggregator-openarchives/resources/bootstrap-3.3.7/css/bootstrap.min.css"
+	rel="stylesheet" />
+
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/project_style.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/bootstrap-toggle.min.css"
+	rel="stylesheet" />
+<link
+	href="/aggregator-openarchives/resources/1.46/css/prettify.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/select2.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/font-awesome-4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/bootstrap-social.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/js/slick/slick.css"
+	rel="stylesheet" />
+<link
+	href="/aggregator-openarchives/resources/1.46/js/slick/slick-theme.css"
+	rel="stylesheet" />
+
+<link rel="stylesheet"
+	href="/aggregator-openarchives/resources/1.46/css/cookieconsent.min.css" />
+
+<script type="application/javascript"
+	src="/aggregator-openarchives/messages/1.0.0/messages-el.js"></script>
+
+<meta name="_csrf" content="371ccd4f-0066-4b22-b86e-7c61be9bde3d" />
+<meta name="_csrf_header" content="X-CSRF-TOKEN" />
+
+<script>
+	$(function() {
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		$(document).ajaxSend(function(e, xhr, options) {
+			xhr.setRequestHeader(header, token);
+		});
+	});
+</script>
+
+<script src='https://www.google.com/recaptcha/api.js?hl=el'></script>
+
+<title>OpenArchives.gr | Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης (ΕΔΑΕ)</title>
+
+<link rel="canonical"
+	href="https://www.openarchives.gr/aggregator-openarchives/portal/institutions/edae">
+
+<link rel="alternate"
+	href="https://www.openarchives.gr/aggregator-openarchives/portal/institutions/edae?language=en"
+	hreflang="en">
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+
+<meta property="og:title"
+	content="OpenArchives.gr | Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης (ΕΔΑΕ)" />
+<meta property="og:description"
+	content="Το Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης είναι Επιστημονική Εταιρεία μη κερδοσκοπικού χαρακτήρα, που εκπροσωπεί τους Έλληνες επιστήμονες, οι οποίοι:
+    ασχολούνται με την παροχή και έρευνα της εξ αποστάσεως εκπαίδευσης
+    προωθούν εμπράκτως τη φιλοσοφία της ανοικτής εκπαίδευσης
+    προωθούν το σκοπό της ελεύθερης πρόσβασης όλων των πολιτών σε κάθε μορφή δια βίου εκπαίδευσης
+    δραστηριοποιούνται σε καινοτόμες μορφές εναλλακτικής εκπαίδευσης">
+<meta property="og:image"
+	content="https://www.openarchives.gr/aggregator-openarchives/resources/1.46/img/SaaS_aggregator_WEBSITE_dp_MAP_new.jpg">
+<meta property="og:sitename" content="openarchives.gr">
+
+<meta name="description"
+	content="Το Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης είναι Επιστημονική Εταιρεία μη κερδοσκοπικού χαρακτήρα, που εκπροσωπεί τους Έλληνες επιστήμονες, οι οποίοι:
+    ασχολούνται με την παροχή και έρευνα της εξ αποστάσεως εκπαίδευσης
+    προωθούν εμπράκτως τη φιλοσοφία της ανοικτής εκπαίδευσης
+    προωθούν το σκοπό της ελεύθερης πρόσβασης όλων των πολιτών σε κάθε μορφή δια βίου εκπαίδευσης
+    δραστηριοποιούνται σε καινοτόμες μορφές εναλλακτικής εκπαίδευσης" />
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary">
+<!-- <meta name="twitter:site" content="@publisher_handle"> -->
+<meta name="twitter:title"
+	content="OpenArchives.gr | Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης (ΕΔΑΕ)" />
+<meta name="twitter:description"
+	content="Το Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης είναι Επιστημονική Εταιρεία μη κερδοσκοπικού χαρακτήρα, που εκπροσωπεί τους Έλληνες επιστήμονες, οι οποίοι:
+    ασχολούνται με την παροχή και έρευνα της εξ αποστάσεως εκπαίδευσης
+    προωθούν εμπράκτως τη φιλοσοφία της ανοικτής εκπαίδευσης
+    προωθούν το σκοπό της ελεύθερης πρόσβασης όλων των πολιτών σε κάθε μορφή δια βίου εκπαίδευσης
+    δραστηριοποιούνται σε καινοτόμες μορφές εναλλακτικής εκπαίδευσης" />
+<meta name="twitter:image"
+	content="https://www.openarchives.gr/aggregator-openarchives/resources/1.46/img/SaaS_aggregator_WEBSITE_dp_MAP_new.jpg">
+
+
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/cookieconsent.min.js"></script>
+<script>
+	var cookies_message = 'Συνεχίζοντας την περιήγηση στο <span class="green_text">OpenArchives</span><span class="gray">.gr</span>, αποδέχεστε τη χρήση cookies';
+	var cookies_accept = 'Αποδοχή';
+	var learn_more = 'Μάθετε περισσότερα';
+	window
+			.addEventListener(
+					"load",
+					function() {
+						window.cookieconsent
+								.initialise({
+									"palette" : {
+										"popup" : {
+											"background" : "#d1d3d4",
+											"text" : "#6b6767"
+										},
+										"button" : {
+											"background" : "#00a2e3",
+											"text" : "#fff9f9"
+										}
+									},
+									"theme" : "classic",
+									"position" : "top",
+									"content" : {
+										"message" : cookies_message,
+										"dismiss" : cookies_accept,
+										"link" : learn_more,
+										"href" : "https://www.openarchives.gr/aggregator-openarchives/portal/privacy#cookies"
+									}
+								})
+					});
+</script>
+
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
+
+	<div class="container-fluid">
+		<div class="masthead">
+	<div class="row vertical-align-justify-center">
+		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-5 no-padding-right ">
+			<div class="img-responsive header-logo">
+
+				<a title='Αρχική σελίδα'
+							href="/aggregator-openarchives/portal/"> <img
+							class="header-logo-logo"
+							src="/aggregator-openarchives/resources/1.46/img/SaaS_aggregator_LOGO_dp_el-final.jpg"></a>
+					</div>
+		</div>
+		<div
+			class="col-xs-5 col-sm-5 col-md-5 col-lg-7 text-right header-logo-saas">
+			<a href="https://www.espa.gr" target="_blank"><img
+				class="header-europeana-stamp hidden-xs hidden-sm hidden-md"
+				src="/aggregator-openarchives/resources/1.46/img/ESPA_logo_GR.jpg" /></a>
+			<a href="http://www.ekt.gr/"><img
+						class="header-ekt-logo hidden-sm hidden-xs hidden-md"
+						src="/aggregator-openarchives/resources/1.46/img/EKT_logo.jpg" /></a>
+					<a href="http://www.ekt.gr/"><img
+						class="header-ekt-logo  hidden-lg"
+						src="/aggregator-openarchives/resources/1.46/img/ekt_logo_vert_el.png" /></a>
+				</div>
+
+	</div>
+
+	<div class="row hidden-lg hidden-xl">
+		<div class="col-xs-12 " style="text-align: center;">
+			<a href="https://www.espa.gr" target="_blank"><img
+				class="header-europeana-stamp "
+				src="/aggregator-openarchives/resources/1.46/img/ESPA_logo_GR.jpg" /></a>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-default navbar-custom">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<!-- 				<a class="navbar-brand" href="#">Project name</a> -->
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/aggregator-openarchives/portal/"><span
+						class="green_text"><i class="fa fa-home"></i></span></a></li>
+				<li><a href="/aggregator-openarchives/portal/search"><span
+						class="green_text"><i class="fa fa-search"></i></span> Αναζήτηση</a></li>
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-expanded="false"><span
+						class="green_text"><i class="fa fa-location-arrow"></i></span> Πλοήγηση<span class="caret"></span> </a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/aggregator-openarchives/portal/ekt-types"><span
+								class="green_text"><i class="fa fa-file-text-o"></i></span> Τύποι τεκμηρίων</a></li>
+
+						<li><a href="/aggregator-openarchives/portal/ekt-subjects"><span
+								class="green_text"><i class="fa fa fa-flask"></i></span> Επιστημονικά πεδία</a></li>
+						<li><a href="/aggregator-openarchives/portal/ekt-departments"><span
+								class="green_text"><i class="fa fa-sitemap"></i></span> Σχολές/Τμήματα/Ινστιτούτα</a></li>
+
+						<li><a href="/aggregator-openarchives/portal/institutions"><span
+								class="green_text"><i class="fa fa-university"></i></span> Φορείς</a></li>
+						<li><a href="/aggregator-openarchives/portal/collections"><span
+								class="green_text"><i class="fa fa-database"></i></span> Συλλογές</a></li>
+					</ul></li>
+
+				<li><a href="/aggregator-openarchives/portal/interoperability"><span
+						class="green_text"><i class="fa fa-code"></i></span> Διαλειτουργικότητα</a></li>
+
+			</ul>
+
+
+			<!-- 				<ul class="nav navbar-nav navbar-right"> -->
+			<!-- 				</ul> -->
+			<ul class="nav navbar-nav navbar-right">
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-expanded="false"> <span
+						class="green_text"><i class="fa fa-info-circle"
+							aria-hidden="true"></i></span> Σχετικά <span
+						class="caret"></span>
+				</a>
+					<ul class="dropdown-menu" role="menu">
+
+						<li><a href="/aggregator-openarchives/portal/info"><span
+								class="header-logo-info-span"><img
+									class="header-logo-info"
+									src="/aggregator-openarchives/resources/1.46/img/oa_small_logo.jpg"></span>
+								Το έργο</a></li>
+
+
+						<li><a href="/aggregator-openarchives/portal/help"> <span
+								class="green_text"><i class="fa fa-question-circle-o"
+									aria-hidden="true"></i></span> Οδηγίες για αναζήτηση & πλοήγηση</a></li>
+
+					</ul></li>
+
+
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-expanded="false"> <span
+						class="green_text"><i class="fa fa-handshake-o"
+							aria-hidden="true"></i></span> Για φορείς<span
+						class="caret"></span>
+				</a>
+					<ul class="dropdown-menu" role="menu">
+
+
+
+						<li><a href="/aggregator-openarchives/portal/participate"><span
+								class="green_text"><i class="fa fa-bullhorn"
+									aria-hidden="true"></i></span> Ένταξη συλλογών</a></li>
+						<li><a
+							href="/aggregator-openarchives/portal/participate/technical-requirements"><span
+								class="green_text"><i class="fa fa-cogs"></i></span> Προδιαγραφές ένταξης</a></li>
+						<li><a href="/aggregator-openarchives/portal/participate/form"><span
+								class="green_text"><i class="fa fa-pencil-square-o"
+									aria-hidden="true"></i></span> Φόρμα εκδήλωσης ενδιαφέροντος</a></li>
+
+					</ul></li>
+
+				<li><a href="/aggregator-openarchives/portal/contact/form"><span
+						class="green_text"><i class="fa fa-envelope-o"></i></span> Επικοινωνία</a></li>
+
+				
+
+
+
+
+
+
+
+
+	
+	
+		
+	
+
+
+
+	
+	
+		
+		
+		<li><span class="language-link-span "><span class="language-text">ΕΛ</span><span class="green_text">&nbsp;•&nbsp;</span><a  class="language-link-left" href="?language=en">EN</a></li>
+	
+
+
+
+</ul>
+
+		</div>
+
+
+	</nav>
+</div>
+
+
+
+
+</div>
+
+	<div class="container" id="containerId">
+
+
+
+
+
+		<ol class="breadcrumb">
+	<li><a href="/aggregator-openarchives/portal/">Αρχική σελίδα</a></li>
+	<li><a href="/aggregator-openarchives/portal/institutions"> <i class="fa fa-university"></i> Φορείς</a></li>
+</ol>
+
+
+<div>
+	<blockquote>
+		<div class="row vertical-align-justify-center-for-large">
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/edae/el/file/edae.jpeg" class="organisation_logo_in_list"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+					</div>
+
+
+			<div class="col-xs-10 col-sm-7 col-md-7 col-lg-8">
+				<h1>
+				<a href="http://www.openet.gr/" target="_blank"
+						class="gray-link organisation_title">Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης (ΕΔΑΕ)&nbsp;</a>
+				</h1>
+				<a href="http://www.openet.gr/" target="_blank">http://www.openet.gr/</a>
+				
+				
+
+
+				
+
+
+
+
+			</div>
+			<div class="col-xs-1 col-sm-3 col-md-3 col-lg-2"
+				style="padding-left: 30px;">
+				<div class="row">
+					<div class="col-xs-12 margin-bottom-large">
+						<div class="pull-right">
+
+							<span><i class="fa fa-share-alt"
+								style="font-size: 1.2em; margin-bottom: 5px" aria-hidden="true"></i></span>
+							<a class="btn btn-social-icon btn-facebook btn-xs margin-bottom"
+								href="http://www.facebook.com/sharer.php?u=https://www.openarchives.gr/aggregator-openarchives/portal/institutions/edae"
+								target="_blank"> <span class="fa fa-facebook"></span>
+							</a> <a class="btn btn-social-icon btn-twitter btn-xs margin-bottom"
+								href="https://twitter.com/intent/tweet?text=https://www.openarchives.gr/aggregator-openarchives/portal/institutions/edae"
+								target="_blank"> <span class="fa fa-twitter"></span>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</blockquote>
+	<div class="row">
+		<div class="col-xs-12 sm-12 col-lg-12">
+			<p class="description">
+				Το Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης είναι Επιστημονική Εταιρεία μη κερδοσκοπικού χαρακτήρα, που εκπροσωπεί τους Έλληνες επιστήμονες, οι οποίοι:
+    ασχολούνται με την παροχή και έρευνα της εξ αποστάσεως εκπαίδευσης
+    προωθούν εμπράκτως τη φιλοσοφία της ανοικτής εκπαίδευσης
+    προωθούν το σκοπό της ελεύθερης πρόσβασης όλων των πολιτών σε κάθε μορφή δια βίου εκπαίδευσης
+    δραστηριοποιούνται σε καινοτόμες μορφές εναλλακτικής εκπαίδευσης</p>
+		</div>
+	</div>
+
+	<label> <a class="btn btn-default btn-xs"
+					href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution">Εταιρεία</a>
+			</label>
+	<div class="container-fluid  no-padding ">
+		<div class="row section">
+
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<h4>
+
+					συλλογές </h4>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+			<div class="col-xs-12 sm-12 col-lg-12">
+
+				<div class="row">
+	<div class="col-xs-12 col-sm-10 col-md-11 col-lg-11">
+		<div class="collection_type">
+					αποθετήριο<span class="lastText text-muted">&nbsp;|&nbsp;826&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+</span>
+
+				</div>
+			</div>
+
+
+
+</div>
+
+
+
+<div class="row">
+
+	<div class="col-xs-12">
+
+
+		<a href="/aggregator-openarchives/portal/collections/openedu" class="collection_title">Διεθνές Συνέδριο για την Ανοικτή και εξ Αποστάσεως Εκπαίδευση</a> &nbsp;&nbsp;<a
+			href="https://eproceedings.epublishing.ekt.gr/index.php/openedu/index" target="_blank"><i
+			class="fa fa-external-link" aria-hidden="true"></i></a>
+
+
+
+
+	</div>
+
+
+
+</div>
+
+
+<div class="row">
+
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<img src="/aggregator-openarchives/portal/organisations/collections/logo/openedu/el/file/εκπαιδ.jpg" class="collection_logo">
+			</div>
+		</div>
+
+
+
+<div class="row">
+	<div class="col-xs-12">
+		<label> <a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Conference-proceedings">Πρακτικά συνεδρίων</a>
+				
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/eproceedings"
+						target="_blank">| <span class="ekt-eproceedings-2">ΕΚΤ e</span><span class="ekt-eproceedings">Proceedings</span></a>
+				</label>
+		</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+						</div>
+		</div>
+
+	<div class="row">
+			<div class="col-xs-12 sm-12 col-lg-12">
+
+				<div class="row">
+	<div class="col-xs-12 col-sm-10 col-md-11 col-lg-11">
+		<div class="collection_type">
+					αποθετήριο<span class="lastText text-muted">&nbsp;|&nbsp;311&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+</span>
+
+				</div>
+			</div>
+
+
+
+</div>
+
+
+
+<div class="row">
+
+	<div class="col-xs-12">
+
+
+		<a href="/aggregator-openarchives/portal/collections/openjournal" class="collection_title">Ανοικτή Εκπαίδευση: το περιοδικό για την Ανοικτή και εξ Αποστάσεως Εκπαίδευση και την Εκπαιδευτική Τεχνολογία</a> &nbsp;&nbsp;<a
+			href="http://ejournals.epublishing.ekt.gr/index.php/openjournal" target="_blank"><i
+			class="fa fa-external-link" aria-hidden="true"></i></a>
+
+
+
+
+	</div>
+
+
+
+</div>
+
+
+<div class="row">
+
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<img src="/aggregator-openarchives/portal/organisations/collections/logo/openjournal/el/file/opennet.png" class="collection_logo">
+			</div>
+		</div>
+
+
+
+<div class="row">
+	<div class="col-xs-12">
+		<label> <a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+				
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+						target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+				</label>
+		</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+		</div>
+
+	</div>
+<br>
+<br>
+
+
+
+
+
+
+
+
+<!-- /container -->
+
+
+	</div>
+
+	<div class="container-fluid">
+		<footer class="footer">
+	<div class="row">
+
+		<div class="col-md-12 col-lg-6">
+			<div class="logos logos-icons">
+				<span><a href="/aggregator-openarchives/portal/" target="_blank"><img
+						class="footer-img-aggregator"
+						src="/aggregator-openarchives/resources/1.46/img/logo_home_btn_footer.png"></img></a></span>
+
+
+
+				<span> 
+
+
+					<a href="https://econtent.ekt.gr/el/pro/aggregation"
+								target="_blank"><img class="footer-img-aggregator"
+								src="/aggregator-openarchives/resources/1.46/img/logo_servisies_AGGREGATION_EKT_2018_dp_2.png"></img></a>
+						</span> <span> <a href="https://econtent.ekt.gr" target="_blank"> <img
+								class="footer-img-econtent"
+								src="/aggregator-openarchives/resources/1.46/img/econtent_footer_logo_gr.png"></img>
+							</a>
+						</span>
+
+
+
+			</div>
+		</div>
+		<div class="col-md-12 col-lg-3">
+			<ul class="social-list list-inline follow-ekt">
+				<li><span class="green_text">Follow</span> EKT</li>
+				<li><a href="https://www.facebook.com/EKTgr" target="_blank">
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+				</a></li>
+				<li><a href="https://twitter.com/EKTgr" target="_blank"> <i
+						class="fa fa-twitter" aria-hidden="true"></i>
+				</a></li>
+				<li><a href="https://www.linkedin.com/company/ektgr/"
+					target="_blank"> <i class="fa fa-linkedin" aria-hidden="true"></i>
+				</a></li>
+				<li><a href="https://www.youtube.com/user/ektgr"
+					target="_blank"> <i class="fa fa-youtube-play"
+						aria-hidden="true"></i>
+				</a></li>
+			</ul>
+		</div>
+		<div class="col-md-12 col-lg-3 logos logos-terms">
+			<p>
+				<span class="lastText"><span> <a
+						title='Επικοινωνία'
+						href="/aggregator-openarchives/portal/contact/form" target="blank"> Επικοινωνία</a></span> <span>|</span> <span> <a
+						title='Πολιτική Απορρήτου'
+						href="/aggregator-openarchives/portal/privacy"> Πολιτική Απορρήτου</a></span> </span> <span class="hidden-lg">|</span> <span class="lastText"> <span>
+						<a title='Όροι Χρήσης'
+						href="/aggregator-openarchives/portal/termsOfUse"> Όροι Χρήσης</a>
+				</span> <span>|</span> <span> <a
+						title='Πνευματική ιδιοκτησία'
+						href="/aggregator-openarchives/portal/license"> Πνευματική ιδιοκτησία</a></span>
+				</span>
+			</p>
+
+
+			<p class="footer-ekt-title-paragraph">
+				<span class="lastText"><span class="footer-ekt-title">©2025 Εθνικό Κέντρο Τεκμηρίωσης και Ηλεκτρονικού Περιεχομένου</span>  <a
+					href="https://creativecommons.org/licenses/by-sa/4.0/deed.el"
+					target="_blank"><img class="footer-img-cc"
+					src="/aggregator-openarchives/resources/1.46/img/cclogo.png"></img></a> </span>
+
+
+			</p>
+		</div>
+	</div>
+
+
+</footer>
+<div class="row vertical-align-justify-center large-padding">
+	<div class="col-xs-12" style="text-align: center">
+		<a href="https://mindigital.gr/" target="_blank"><img class="padding"
+			src="/aggregator-openarchives/resources/1.46/img/logo_ypoyrgeio_el.png" /></a>
+		
+	</div>
+</div>
+
+
+</div>
+
+	<div class="modal fade modal-wide" id="questionnaire" tabindex="-1"
+		data-focus-on="input:first">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h4 class="modal-title">
+						Βοηθείστε μας να κάνουμε καλύτερο το <span class="green_text">OpenArchives</span><span class="gray">.gr</span>.  </h4>
+				</div>
+				<div class="modal-body entity-view-body">
+					Πάρτε μέρος στη σύντομη έρευνα!<a href=""></a>
+				</div>
+
+
+				<div class="modal-footer">
+
+					<div>
+						<a
+							href="https://docs.google.com/forms/d/e/1FAIpQLSf1WLf_uwn0n82YxGse5NuEzUG0LcOCjg76eSCZ5gPiiBuRGg/viewform"
+							target="_blank" class="btn btn-default pull-left close-modal">Nαι, θα το κάνω τώρα</a>
+					</div>
+
+					<div>
+
+						<a href="#" class="btn btn-default pull-right close-modal">Όχι ευχαριστώ</a>
+					</div>
+
+
+				</div>
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			$('[data-toggle="tooltip"]').tooltip({
+				container : 'body'
+			});
+
+		});
+	</script>
+</body>
+</html>

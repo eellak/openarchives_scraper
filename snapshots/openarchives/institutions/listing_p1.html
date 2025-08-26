@@ -1,0 +1,5667 @@
+<!doctype html>
+
+<html lang="el">
+<head>
+
+<!-- Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+	<script async
+		src="https://www.googletagmanager.com/gtag/js?id=G-PN5EC3N1E3"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-PN5EC3N1E3');
+	</script>
+<!-- End Google Tag Manager -->
+
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/jquery-2.1.3.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/js.cookie.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/common.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/jquery.dynamiclist.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/js/common-crud.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/js/jquery.blockUI.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/google-code-prettify/prettify.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/js/vkbeautify.0.99.00.beta.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/jquery.twbsPagination.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/select2.full.min.js"></script>
+<script
+	src="/aggregator-openarchives/resources/1.46/js/i18n/el.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/bootstrap3-typeahead.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/slick/slick.min.js"></script>
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/bootstrap-toggle.js"></script>
+
+<link rel="shortcut icon"
+	href='/aggregator-openarchives/resources/1.46/img/favicon.ico'
+	type="image/x-icon">
+<link rel="icon"
+	href='/aggregator-openarchives/resources/1.46/img/favicon.ico'
+	type="image/x-icon">
+
+
+<link
+	href="/aggregator-openarchives/resources/bootstrap-3.3.7/css/bootstrap.min.css"
+	rel="stylesheet" />
+
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/project_style.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/bootstrap-toggle.min.css"
+	rel="stylesheet" />
+<link
+	href="/aggregator-openarchives/resources/1.46/css/prettify.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/select2.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/font-awesome-4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/css/bootstrap-social.css"
+	rel="stylesheet" />
+
+<link
+	href="/aggregator-openarchives/resources/1.46/js/slick/slick.css"
+	rel="stylesheet" />
+<link
+	href="/aggregator-openarchives/resources/1.46/js/slick/slick-theme.css"
+	rel="stylesheet" />
+
+<link rel="stylesheet"
+	href="/aggregator-openarchives/resources/1.46/css/cookieconsent.min.css" />
+
+<script type="application/javascript"
+	src="/aggregator-openarchives/messages/1.0.0/messages-el.js"></script>
+
+<meta name="_csrf" content="61dbef7d-a16f-499f-96a7-b17893d20536" />
+<meta name="_csrf_header" content="X-CSRF-TOKEN" />
+
+<script>
+	$(function() {
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		$(document).ajaxSend(function(e, xhr, options) {
+			xhr.setRequestHeader(header, token);
+		});
+	});
+</script>
+
+<script src='https://www.google.com/recaptcha/api.js?hl=el'></script>
+
+<title>OpenArchives.gr | Φορείς</title>
+
+<link rel="canonical"
+	href="https://www.openarchives.gr/aggregator-openarchives/portal/institutions">
+
+<link rel="alternate"
+	href="https://www.openarchives.gr/aggregator-openarchives/portal/institutions?language=en"
+	hreflang="en">
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+
+<meta property="og:title"
+	content="OpenArchives.gr | Φορείς" />
+<meta property="og:description"
+	content="Οι συλλογές του OpenArchives.gr προέρχονται από έγκριτους φορείς από την Ελλάδα και την Κύπρο, όπως πανεπιστήμια, ερευνητικούς φορείς, επιστημονικές εταιρείες, δημόσιες βιβλιοθήκες, μουσεία, αρχεία και συλλογές ιδρυμάτων">
+<meta property="og:image"
+	content="https://www.openarchives.gr/aggregator-openarchives/resources/1.46/img/SaaS_aggregator_WEBSITE_dp_MAP_new.jpg">
+<meta property="og:sitename" content="openarchives.gr">
+
+<meta name="description"
+	content="Οι συλλογές του OpenArchives.gr προέρχονται από έγκριτους φορείς από την Ελλάδα και την Κύπρο, όπως πανεπιστήμια, ερευνητικούς φορείς, επιστημονικές εταιρείες, δημόσιες βιβλιοθήκες, μουσεία, αρχεία και συλλογές ιδρυμάτων" />
+
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary">
+<!-- <meta name="twitter:site" content="@publisher_handle"> -->
+<meta name="twitter:title"
+	content="OpenArchives.gr | Φορείς" />
+<meta name="twitter:description"
+	content="Οι συλλογές του OpenArchives.gr προέρχονται από έγκριτους φορείς από την Ελλάδα και την Κύπρο, όπως πανεπιστήμια, ερευνητικούς φορείς, επιστημονικές εταιρείες, δημόσιες βιβλιοθήκες, μουσεία, αρχεία και συλλογές ιδρυμάτων" />
+<meta name="twitter:image"
+	content="https://www.openarchives.gr/aggregator-openarchives/resources/1.46/img/SaaS_aggregator_WEBSITE_dp_MAP_new.jpg">
+
+
+
+<script
+	src="/aggregator-openarchives/resources/1.46/js/cookieconsent.min.js"></script>
+<script>
+	var cookies_message = 'Συνεχίζοντας την περιήγηση στο <span class="green_text">OpenArchives</span><span class="gray">.gr</span>, αποδέχεστε τη χρήση cookies';
+	var cookies_accept = 'Αποδοχή';
+	var learn_more = 'Μάθετε περισσότερα';
+	window
+			.addEventListener(
+					"load",
+					function() {
+						window.cookieconsent
+								.initialise({
+									"palette" : {
+										"popup" : {
+											"background" : "#d1d3d4",
+											"text" : "#6b6767"
+										},
+										"button" : {
+											"background" : "#00a2e3",
+											"text" : "#fff9f9"
+										}
+									},
+									"theme" : "classic",
+									"position" : "top",
+									"content" : {
+										"message" : cookies_message,
+										"dismiss" : cookies_accept,
+										"link" : learn_more,
+										"href" : "https://www.openarchives.gr/aggregator-openarchives/portal/privacy#cookies"
+									}
+								})
+					});
+</script>
+
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
+
+	<div class="container-fluid">
+		<div class="masthead">
+	<div class="row vertical-align-justify-center">
+		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-5 no-padding-right ">
+			<div class="img-responsive header-logo">
+
+				<a title='Αρχική σελίδα'
+							href="/aggregator-openarchives/portal/"> <img
+							class="header-logo-logo"
+							src="/aggregator-openarchives/resources/1.46/img/SaaS_aggregator_LOGO_dp_el-final.jpg"></a>
+					</div>
+		</div>
+		<div
+			class="col-xs-5 col-sm-5 col-md-5 col-lg-7 text-right header-logo-saas">
+			<a href="https://www.espa.gr" target="_blank"><img
+				class="header-europeana-stamp hidden-xs hidden-sm hidden-md"
+				src="/aggregator-openarchives/resources/1.46/img/ESPA_logo_GR.jpg" /></a>
+			<a href="http://www.ekt.gr/"><img
+						class="header-ekt-logo hidden-sm hidden-xs hidden-md"
+						src="/aggregator-openarchives/resources/1.46/img/EKT_logo.jpg" /></a>
+					<a href="http://www.ekt.gr/"><img
+						class="header-ekt-logo  hidden-lg"
+						src="/aggregator-openarchives/resources/1.46/img/ekt_logo_vert_el.png" /></a>
+				</div>
+
+	</div>
+
+	<div class="row hidden-lg hidden-xl">
+		<div class="col-xs-12 " style="text-align: center;">
+			<a href="https://www.espa.gr" target="_blank"><img
+				class="header-europeana-stamp "
+				src="/aggregator-openarchives/resources/1.46/img/ESPA_logo_GR.jpg" /></a>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-default navbar-custom">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<!-- 				<a class="navbar-brand" href="#">Project name</a> -->
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/aggregator-openarchives/portal/"><span
+						class="green_text"><i class="fa fa-home"></i></span></a></li>
+				<li><a href="/aggregator-openarchives/portal/search"><span
+						class="green_text"><i class="fa fa-search"></i></span> Αναζήτηση</a></li>
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-expanded="false"><span
+						class="green_text"><i class="fa fa-location-arrow"></i></span> Πλοήγηση<span class="caret"></span> </a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/aggregator-openarchives/portal/ekt-types"><span
+								class="green_text"><i class="fa fa-file-text-o"></i></span> Τύποι τεκμηρίων</a></li>
+
+						<li><a href="/aggregator-openarchives/portal/ekt-subjects"><span
+								class="green_text"><i class="fa fa fa-flask"></i></span> Επιστημονικά πεδία</a></li>
+						<li><a href="/aggregator-openarchives/portal/ekt-departments"><span
+								class="green_text"><i class="fa fa-sitemap"></i></span> Σχολές/Τμήματα/Ινστιτούτα</a></li>
+
+						<li><a href="/aggregator-openarchives/portal/institutions"><span
+								class="green_text"><i class="fa fa-university"></i></span> Φορείς</a></li>
+						<li><a href="/aggregator-openarchives/portal/collections"><span
+								class="green_text"><i class="fa fa-database"></i></span> Συλλογές</a></li>
+					</ul></li>
+
+				<li><a href="/aggregator-openarchives/portal/interoperability"><span
+						class="green_text"><i class="fa fa-code"></i></span> Διαλειτουργικότητα</a></li>
+
+			</ul>
+
+
+			<!-- 				<ul class="nav navbar-nav navbar-right"> -->
+			<!-- 				</ul> -->
+			<ul class="nav navbar-nav navbar-right">
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-expanded="false"> <span
+						class="green_text"><i class="fa fa-info-circle"
+							aria-hidden="true"></i></span> Σχετικά <span
+						class="caret"></span>
+				</a>
+					<ul class="dropdown-menu" role="menu">
+
+						<li><a href="/aggregator-openarchives/portal/info"><span
+								class="header-logo-info-span"><img
+									class="header-logo-info"
+									src="/aggregator-openarchives/resources/1.46/img/oa_small_logo.jpg"></span>
+								Το έργο</a></li>
+
+
+						<li><a href="/aggregator-openarchives/portal/help"> <span
+								class="green_text"><i class="fa fa-question-circle-o"
+									aria-hidden="true"></i></span> Οδηγίες για αναζήτηση & πλοήγηση</a></li>
+
+					</ul></li>
+
+
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-expanded="false"> <span
+						class="green_text"><i class="fa fa-handshake-o"
+							aria-hidden="true"></i></span> Για φορείς<span
+						class="caret"></span>
+				</a>
+					<ul class="dropdown-menu" role="menu">
+
+
+
+						<li><a href="/aggregator-openarchives/portal/participate"><span
+								class="green_text"><i class="fa fa-bullhorn"
+									aria-hidden="true"></i></span> Ένταξη συλλογών</a></li>
+						<li><a
+							href="/aggregator-openarchives/portal/participate/technical-requirements"><span
+								class="green_text"><i class="fa fa-cogs"></i></span> Προδιαγραφές ένταξης</a></li>
+						<li><a href="/aggregator-openarchives/portal/participate/form"><span
+								class="green_text"><i class="fa fa-pencil-square-o"
+									aria-hidden="true"></i></span> Φόρμα εκδήλωσης ενδιαφέροντος</a></li>
+
+					</ul></li>
+
+				<li><a href="/aggregator-openarchives/portal/contact/form"><span
+						class="green_text"><i class="fa fa-envelope-o"></i></span> Επικοινωνία</a></li>
+
+				
+
+
+
+
+
+
+
+
+	
+	
+		
+	
+
+
+
+	
+	
+		
+		
+		<li><span class="language-link-span "><span class="language-text">ΕΛ</span><span class="green_text">&nbsp;•&nbsp;</span><a  class="language-link-left" href="?page.page=1&query=&language=en">EN</a></li>
+	
+
+
+
+</ul>
+
+		</div>
+
+
+	</nav>
+</div>
+
+
+
+
+</div>
+
+	<div class="container" id="containerId">
+
+
+
+
+
+		<div class="row vertical-align">
+
+
+
+	<div class="col-xs-12 col-sm-12">
+
+		<blockquote>
+			<h1>
+				<i class="fa fa-university green_text"></i>
+				Φορείς</h1>
+			<footer>
+				Οι συλλογές του <span class="green_text">OpenArchives</span><span class="gray">.gr</span> προέρχονται από έγκριτους φορείς από την Ελλάδα και την Κύπρο, όπως πανεπιστήμια, ερευνητικούς φορείς, επιστημονικές εταιρείες, δημόσιες βιβλιοθήκες, μουσεία, αρχεία και συλλογές ιδρυμάτων</footer>
+		</blockquote>
+	</div>
+
+</div>
+
+
+
+<form method="get"
+	action="/aggregator-openarchives/portal/institutions"
+	id="institutionSearchForm" class="form-search">
+
+	<input type="hidden" name="page.page" class="current_page"
+		value="1" />
+
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-3 ">
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+	<div class="col-xs-12" id="facet-col">
+		<div id="facet-container">
+			
+				<div id="search-div" class="panel panel-default simple-search">
+					<div class="panel-body simple-search-panel-body ">
+
+						<div class="row main-search">
+							<div class="col-xs-12 col-sm-12">
+								<div class="form-horizontal keyword-list">
+									<div class="form-group" style="margin-bottom: 5px;">
+										<div class="col-sm-12 col-md-12">
+											
+											<input type="text" name="query"
+												placeholder="Πληκτρολογήστε λέξη ή φράση" value=""
+												class="form-control map-key typeahead simple-search-field">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="search-button-div"
+							style="margin-top: 6px; margin-bottom: 6px;">
+
+							<button type="submit"
+								class="btn search-btn search search-button margin-bottom ">
+								Αναζήτηση
+							</button>
+							<a
+								class="btn search-btn clear btn-default clear-facets margin-bottom ">
+								Καθαρισμός
+							</a>
+						</div>
+					</div>
+				</div>
+			
+			
+				<div class="facet-external-div">
+					<div class="hidden-md hidden-lg hidden-xl">
+						<a role="button" data-toggle="collapse" href="#collapseFilters"
+							aria-expanded="false" aria-controls="collapseFilters"><h4
+								class="search-filter">
+
+								Κατηγορία
+								<i
+									class="fa fa-angle-double-down colapse-arrow colapse-arrow-down green_text"
+									aria-hidden="true"></i> <i
+									class="fa fa-angle-double-up colapse-arrow colapse-arrow-up green_text"
+									aria-hidden="true"></i>
+							</h4> </a>
+					</div>
+
+					<div class="search-facets facetspanel collapse"
+						id="collapseFilters">
+						<div class="facets">
+
+							<div>
+								<div class="accordion-heading hidden-sm hidden-xs">
+									<label> Κατηγορία</label>
+								</div>
+								
+								<div>
+									<div class="tags-facet-div">
+										<ul class="list-unstyled">
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/Cultural-institution--Archive"
+															>
+															<span> <span class="labels">
+															
+																
+																Αρχείο
+															
+															</span> <span
+																class="text-muted lastText"> (3)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/Public-or-Municipal-Library"
+															>
+															<span> <span class="labels">
+															
+																
+																Βιβλιοθήκη
+															
+															</span> <span
+																class="text-muted lastText"> (1)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/Municipality"
+															>
+															<span> <span class="labels">
+															
+																
+																Δήμος / Δημοτική Επιχείρηση
+															
+															</span> <span
+																class="text-muted lastText"> (1)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution"
+															>
+															<span> <span class="labels">
+															
+																
+																Εκπαιδευτικός / Ακαδημαϊκός Φορέας
+															
+															</span> <span
+																class="text-muted lastText"> (56)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/Research-Institution"
+															>
+															<span> <span class="labels">
+															
+																
+																Ερευνητικός Φορέας/ Επιστημονική Εταιρεία
+															
+															</span> <span
+																class="text-muted lastText"> (22)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution"
+															>
+															<span> <span class="labels">
+															
+																
+																Εταιρεία
+															
+															</span> <span
+																class="text-muted lastText"> (27)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/Religious-and-Ecclesiastical-Institution"
+															>
+															<span> <span class="labels">
+															
+																
+																Θρησκευτικός / Εκκλησιαστικός Φορέας
+															
+															</span> <span
+																class="text-muted lastText"> (2)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/Museum"
+															>
+															<span> <span class="labels">
+															
+																
+																Μουσείο
+															
+															</span> <span
+																class="text-muted lastText"> (1)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/259355360"
+															>
+															<span> <span class="labels">
+															
+																
+																Πολιτιστικός Φορέας
+															
+															</span> <span
+																class="text-muted lastText"> (2)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+												<li class="facet-value"
+													style="margin-left:0px"
+													data-margin-left="0px">
+
+
+													<div class="checkbox" >
+														<label> <input type="checkbox" name="tags"
+															class="facet-value-checked" value="http://semantics.gr/authorities/searchculture-institution-types/Association"
+															>
+															<span> <span class="labels">
+															
+																
+																Σωματείο / Ένωση / Συνεταιρισμός
+															
+															</span> <span
+																class="text-muted lastText"> (4)
+															</span>
+														</span>
+														</label>
+
+													</div>
+
+												</li>
+											
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			
+		</div>
+
+	</div>
+</div>
+
+
+
+<script>
+	$(document)
+			.ready(
+					function() {
+
+						$('.facet-value-checked').click(
+								function() {
+									$(this).closest('form').find(
+											'.current_page').val('1');
+									$(this).closest("form").submit();
+								});
+
+						$('.facet-value-checked').each(
+								function() {
+									if ($(this).prop('checked')) {
+
+										$(this).closest('.collapse').collapse(
+												'show');
+										$(this).closest('.facet-external-div')
+												.find('.facetspanel').collapse(
+														'show');
+										$(this)[0].scrollIntoView();
+									}
+								});
+
+						$('.clear-facets')
+								.click(
+										function() {
+											$('.facets')
+													.find(
+															'input[type=text], input[type=checkbox], textarea, select')
+													.val('').removeAttr(
+															'checked')
+													.removeAttr('selected');
+
+											$(this).closest('form').find(
+													'.current_page').val('1');
+											$('.simple-search-field').val('');
+
+											$(this).closest("form").submit();
+										});
+
+					});
+
+	
+</script></div>
+
+		<div class="col-xs-12 col-sm-12 col-md-9 ">
+
+
+			<div class="row">
+				<div class="col-md-12 col-lg-6 edm-entity-result">
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		<div class="results-pagination ">
+			<div class="text-muted " style="padding-top: 8px">
+				1
+				&nbsp;-&nbsp;
+				30
+				&nbsp;
+				από 
+				&nbsp;
+				119
+				&nbsp;
+				
+					
+						institutions
+					
+					
+
+				
+			</div>
+		</div>
+	
+	
+
+</div>
+				<div class="col-md-12 col-lg-6 text-right ">
+						<ul id="pagination1" class="pagination-sm"></ul>
+
+<script>
+	$(document).ready(function() {
+
+		var formId = 'institutionSearchForm';
+		var currentP = '1';
+		var pageSize = '30';
+		var itemsNum = '119';
+		var paginationId = 'pagination1';
+		var maxPages = '4';
+
+		var currentPageClass = '';
+		if (!currentPageClass) {
+			currentPageClass = 'current_page';
+		}
+
+		var onPageCl = function(event, pageNumber) {
+			$('#' + formId + " ." + currentPageClass).val(pageNumber);
+			$('#' + formId).submit();
+		};
+
+		$('#' + paginationId).twbsPagination({
+
+			totalPages : parseInt(maxPages),
+			startPage : parseInt(currentP),
+			visiblePages : 3,
+			prev : '◁',
+			next : '▷',
+			first : '◁◁',
+			last : '▷▷',
+			onPageClick : onPageCl
+		});
+	});
+
+	
+</script>
+						&nbsp;
+					</div>
+				</div>
+
+
+
+			<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/hnpsociety/el/file/HNPS_new_logo2019.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/hnpsociety"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Hellenic Nuclear Physics Society <span
+				class="lastText text-muted">&nbsp;|&nbsp;928&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution">Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/hnps"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Annual Symposium of the Hellenic Nuclear Physics Society<span
+							class="text-muted lastText">&nbsp;|&nbsp;928&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Conference-proceedings">Πρακτικά συνεδρίων</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/eproceedings"
+								target="_blank">| <span class="ekt-eproceedings-2">ΕΚΤ e</span><span class="ekt-eproceedings">Proceedings</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/qcc/el/file/qcc.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/qcc"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> History Department Queensborough Community College / CUNY <span
+				class="lastText text-muted">&nbsp;|&nbsp;6&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/entertainment"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Entertainment - Journal of Media and Movie Studies<span
+							class="text-muted lastText">&nbsp;|&nbsp;6&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/Isegoria/el/file/Isegoria.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/Isegoria"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> ISEGORIA <span
+				class="lastText text-muted">&nbsp;|&nbsp;19&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution">Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/pnyx"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Pnyx: Journal of Classical Studies<span
+							class="text-muted lastText">&nbsp;|&nbsp;19&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/EngLang/el/file/uoa_logo_gr.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/EngLang"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> National and Kapodistrian University of Athens - Department of English Language and Literature <span
+				class="lastText text-muted">&nbsp;|&nbsp;181&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/synthesis"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Synthesis<span
+							class="text-muted lastText">&nbsp;|&nbsp;181&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/AthensAcademy/el/file/ακαδημια.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/AthensAcademy"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Ακαδημία Αθηνών <span
+				class="lastText text-muted">&nbsp;|&nbsp;12.316&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution">Εταιρεία</a>
+				
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Research-Institution">Ερευνητικός Φορέας/ Επιστημονική Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/lexdelt"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Λεξικογραφικόν Δελτίον<span
+							class="text-muted lastText">&nbsp;|&nbsp;96&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/ACADEMY_LIB"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Βιβλιοθήκη της Ακαδημίας Αθηνών &#039;&#039;Ιωάννης Συκουτρής&#039;&#039;<span
+							class="text-muted lastText">&nbsp;|&nbsp;436&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Digital-Library">Ψηφιακή Βιβλιοθήκη</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/KEEON"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Κέντρον Ερεύνης Επιστημονικών Όρων και Νεολογισμών (ΚΕΕΟΝ)<span
+							class="text-muted lastText">&nbsp;|&nbsp;5&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Digital-Library">Ψηφιακή Βιβλιοθήκη</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/KEEF"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Κέντρον Ερεύνης Ελληνικής Φιλοσοφίας (ΚΕΕΦ)<span
+							class="text-muted lastText">&nbsp;|&nbsp;1.159&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Digital-Library">Ψηφιακή Βιβλιοθήκη</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/KEIED"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Κέντρον Ερεύνης της Ιστορίας του Ελληνικού Δικαίου (ΚΕΙΕΔ)<span
+							class="text-muted lastText">&nbsp;|&nbsp;9.837&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Digital-Library">Ψηφιακή Βιβλιοθήκη</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/KEBMT"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Κέντρο Έρευνας της Βυζαντινής και Μεταβυζαντινής Τέχνης (ΚΕΒΜΤ)<span
+							class="text-muted lastText">&nbsp;|&nbsp;7&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Digital-Library">Ψηφιακή Βιβλιοθήκη</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/KEINE"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Κέντρον Ερεύνης της Ιστορίας του Νεωτέρου Ελληνισμού (ΚΕΙΝΕ)<span
+							class="text-muted lastText">&nbsp;|&nbsp;776&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Digital-Library">Ψηφιακή Βιβλιοθήκη</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/ouc/el/file/ouc.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/ouc"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Ανοικτό Πανεπιστήμιο Κύπρου <span
+				class="lastText text-muted">&nbsp;|&nbsp;1.696&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/kypseli"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Ψηφιακό Αποθετήριο Κυψέλη<span
+							class="text-muted lastText">&nbsp;|&nbsp;1.696&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-aeiatei">Ιδρυματικό Αποθετήριο ΑΕΙ/ΑΤΕΙ</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/auth/el/file/auth.jpeg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/auth"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης <span
+				class="lastText text-muted">&nbsp;|&nbsp;166.863&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/IKEE_AUT"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Ιδρυματικό Καταθετήριο Επιστημονικών Εργασιών ΑΠΘ<span
+							class="text-muted lastText">&nbsp;|&nbsp;164.649&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-aeiatei">Ιδρυματικό Αποθετήριο ΑΕΙ/ΑΤΕΙ</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/sophia"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Ψηφιακό Αποθετήριο Τμήματος Μουσικών Σπουδών Α.Π.Θ. ΣΟΦΙΑ<span
+							class="text-muted lastText">&nbsp;|&nbsp;2.214&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-aeiatei">Ιδρυματικό Αποθετήριο ΑΕΙ/ΑΤΕΙ</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/4uni/el/file/Ολα τα λογκο.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/4uni"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης - Εθνικό Μετσόβιο Πολυτεχνείο - Πολυτεχνείο Κρήτης - Πανεπιστήμιο Ιωαννίνων <span
+				class="lastText text-muted">&nbsp;|&nbsp;76&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/childspace"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Χώροι για το Παιδί ή Χώροι του Παιδιού;<span
+							class="text-muted lastText">&nbsp;|&nbsp;76&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Conference-proceedings">Πρακτικά συνεδρίων</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/eproceedings"
+								target="_blank">| <span class="ekt-eproceedings-2">ΕΚΤ e</span><span class="ekt-eproceedings">Proceedings</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/aua/el/file/aua.jpeg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/aua"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Γεωπονικό Πανεπιστήμιο Αθηνών <span
+				class="lastText text-muted">&nbsp;|&nbsp;3.043&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/aua"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Ψηφιακό Αποθετήριο Γεωπονικού Πανεπιστημίου Αθηνών<span
+							class="text-muted lastText">&nbsp;|&nbsp;3.043&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-aeiatei">Ιδρυματικό Αποθετήριο ΑΕΙ/ΑΤΕΙ</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/duth/el/file/dimokriteio_logo_gr-en-200x177.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/duth"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Δημοκρίτειο Πανεπιστήμιο Θράκης <span
+				class="lastText text-muted">&nbsp;|&nbsp;20.125&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/repo_duth"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Αποθετήριο Δημοκρίτειου Πανεπιστημίου<span
+							class="text-muted lastText">&nbsp;|&nbsp;20.125&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-aeiatei">Ιδρυματικό Αποθετήριο ΑΕΙ/ΑΤΕΙ</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/dkvk/el/file/Logo-ilias-kalama-300x165.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/dkvk"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Δημόσια Κεντρική Βιβλιοθήκη Καλαμάτας <span
+				class="lastText text-muted">&nbsp;|&nbsp;110&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Public-or-Municipal-Library">Βιβλιοθήκη</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/anemopetalio"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Ανεμοπετάλιο<span
+							class="text-muted lastText">&nbsp;|&nbsp;63&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/armenistis"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Αρμενιστής<span
+							class="text-muted lastText">&nbsp;|&nbsp;47&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/pml/el/file/dimos-prevezas.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/pml"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Δήμος Πρέβεζας - Δημοτική Βιβλιοθήκη Πρέβεζας <span
+				class="lastText text-muted">&nbsp;|&nbsp;416&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Municipality">Δήμος / Δημοτική Επιχείρηση</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/prevchr"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Πρεβεζάνικα Χρονικά<span
+							class="text-muted lastText">&nbsp;|&nbsp;416&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/DJ/el/file/DJ.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/DJ"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> «Διεθνές Ιπποκράτειο Ίδρυμα Κω», «Ίδρυμα Ιστορίας Ιατρικής Ν.Κ. Λούρου», «Φίλοι του Mουσείου Eλληνικής Iατρικής» <span
+				class="lastText text-muted">&nbsp;|&nbsp;30&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/259355360">Πολιτιστικός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/deltos"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Δέλτος<span
+							class="text-muted lastText">&nbsp;|&nbsp;30&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/ihu/el/file/ihu.jpeg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/ihu"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Διεθνές Πανεπιστήμιο της Ελλάδος <span
+				class="lastText text-muted">&nbsp;|&nbsp;23.370&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/rep_ihu"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Ιδρυματικό Αποθετήριο Διεθνούς Πανεπιστημίου Ελλάδος (ΔΙΠΑΕ)<span
+							class="text-muted lastText">&nbsp;|&nbsp;23.370&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-forewn-ereynas">Ιδρυματικό Αποθετήριο Φορέων Έρευνας</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/Achiou/el/file/Achiou.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/Achiou"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Διεύθυνση Πρωτοβάθμιας Εκπαίδευσης Χίου <span
+				class="lastText text-muted">&nbsp;|&nbsp;29&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Research-Institution">Ερευνητικός Φορέας/ Επιστημονική Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/edro"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Εκπαιδευτικές Διαδρομές<span
+							class="text-muted lastText">&nbsp;|&nbsp;29&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/HNBC/el/file/bioethics.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/HNBC"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Εθνική Επιτροπή Βιοηθικής <span
+				class="lastText text-muted">&nbsp;|&nbsp;124&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution">Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/bioethica"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Βιοηθικά<span
+							class="text-muted lastText">&nbsp;|&nbsp;124&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/eie/el/file/eie.jpeg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/eie"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Εθνικό Ίδρυμα Ερευνών (ΕΙΕ) <span
+				class="lastText text-muted">&nbsp;|&nbsp;11.049&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Research-Institution">Ερευνητικός Φορέας/ Επιστημονική Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/helios"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Ήλιος - Αποθετήριο Εθνικού Ιδρύματος Ερευνών<span
+							class="text-muted lastText">&nbsp;|&nbsp;11.049&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-forewn-ereynas">Ιδρυματικό Αποθετήριο Φορέων Έρευνας</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/repositories"
+								target="_blank">| <span class="ekt-repositories">αποθετήρια </span><span class="ekt-repositories-2">EKT</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/uoa/el/file/uoa_logo_el.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/uoa"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών <span
+				class="lastText text-muted">&nbsp;|&nbsp;122.056&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/pergamos"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Πέργαμος<span
+							class="text-muted lastText">&nbsp;|&nbsp;122.056&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-aeiatei">Ιδρυματικό Αποθετήριο ΑΕΙ/ΑΤΕΙ</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/ekke/el/file/ekketrans.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/ekke"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Εθνικό Κέντρο Κοινωνικών Ερευνών (ΕΚΚΕ) <span
+				class="lastText text-muted">&nbsp;|&nbsp;1.319&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Research-Institution">Ερευνητικός Φορέας/ Επιστημονική Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/ekke"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Επιθεώρηση Κοινωνικών Ερευνών<span
+							class="text-muted lastText">&nbsp;|&nbsp;1.319&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/EKT/el/file/ekt_logo.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/EKT"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Εθνικό Κέντρο Τεκμηρίωσης και Ηλεκτρονικού Περιεχομένου (ΕΚΤ) <span
+				class="lastText text-muted">&nbsp;|&nbsp;58.345&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/phdtheses"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Εθνικό Αρχείο Διδακτορικών Διατριβών<span
+							class="text-muted lastText">&nbsp;|&nbsp;54.913&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/National-Archive-of-PhD-Theses">Εθνικό Αρχείο Διδακτορικών Διατριβών</a>
+							
+													
+									&nbsp;<a href="https://www.didaktorika.gr/"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ </span><span class="ekt-eadd">ΕΑΔΔ</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/ariadne"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Ιδρυματικό Αποθετήριο ΕΚΤ «Αριάδνη»<span
+							class="text-muted lastText">&nbsp;|&nbsp;3.432&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-forewn-ereynas">Ιδρυματικό Αποθετήριο Φορέων Έρευνας</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/repositories"
+								target="_blank">| <span class="ekt-repositories">αποθετήρια </span><span class="ekt-repositories-2">EKT</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/ntua/el/file/ntua.png.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/ntua"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Εθνικό Μετσόβιο Πολυτεχνείο <span
+				class="lastText text-muted">&nbsp;|&nbsp;59.442&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/ntua"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Ψηφιακό Αποθετήριο της Κεντρικής Βιβλιοθήκης του ΕΜΠ | Dspace@NTUA<span
+							class="text-muted lastText">&nbsp;|&nbsp;59.442&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/idrymatiko-apothethrio-aeiatei">Ιδρυματικό Αποθετήριο ΑΕΙ/ΑΤΕΙ</a>
+							
+													
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/EPGD/el/file/uoa_logo_gr.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/EPGD"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Εθνικόν και Καποδιστριακόν Πανεπιστήμιον Αθηνών (ΕΚΠΑ) - Ερευνητικό Κέντρο Οικονομικής πολιτικής, Διακυβέρνησης και Ανάπτυξης <span
+				class="lastText text-muted">&nbsp;|&nbsp;133&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/periphery"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Περιφέρεια<span
+							class="text-muted lastText">&nbsp;|&nbsp;133&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/kemepse/el/file/school.med.schools_logo.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/kemepse"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Εθνικόν και Καποδιστριακόν Πανεπιστήμιον Αθηνών (ΕΚΠΑ) - Κέντρο Μελέτης Ψυχοφυσιολογίας και Εκπαίδευσης <span
+				class="lastText text-muted">&nbsp;|&nbsp;647&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/edusc"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Πανελλήνιο Συνέδριο Επιστημών Εκπαίδευσης<span
+							class="text-muted lastText">&nbsp;|&nbsp;647&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/eproceedings"
+								target="_blank">| <span class="ekt-eproceedings-2">ΕΚΤ e</span><span class="ekt-eproceedings">Proceedings</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/icu/el/file/uoa_logo_gr.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/icu"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Εθνικόν και Καποδιστριακόν Πανεπιστήμιον Αθηνών, Πρόγραμμα Μεταπτυχιακών Σπουδών «Μονάδες Εντατικής Θεραπείας»  <span
+				class="lastText text-muted">&nbsp;|&nbsp;234&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Educational-Institution">Εκπαιδευτικός / Ακαδημαϊκός Φορέας</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/HealthResJ"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Health and Research Journal<span
+							class="text-muted lastText">&nbsp;|&nbsp;234&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/annalsgastro/el/file/annalsgastro.jpeg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/annalsgastro"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Ελληνική Γαστροεντερολογική Εταιρία <span
+				class="lastText text-muted">&nbsp;|&nbsp;2.080&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution">Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/gastro"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Annals of Gastroenterology<span
+							class="text-muted lastText">&nbsp;|&nbsp;2.080&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+													
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/geosociety/el/file/homepageImage_el_GR.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/geosociety"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Ελληνική Γεωλογική Εταιρεία <span
+				class="lastText text-muted">&nbsp;|&nbsp;1.632&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution">Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/geosociety"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Δελτίο της Ελληνικής Γεωλογικής Εταιρίας<span
+							class="text-muted lastText">&nbsp;|&nbsp;1.632&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/etpe/el/file/etpe-logo-04-300x82.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/etpe"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Ελληνική Επιστημονική Ένωση Τεχνολογιών Πληροφορίας &amp; Επικοινωνιών Στην Εκπαίδευση (ΕΤΠΕ) <span
+				class="lastText text-muted">&nbsp;|&nbsp;2.303&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Association">Σωματείο / Ένωση / Συνεταιρισμός</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/cetpe"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Συνέδρια της Ελληνικής Επιστημονικής Ένωσης Τεχνολογιών Πληροφορίας &amp; Επικοινωνιών στην Εκπαίδευση<span
+							class="text-muted lastText">&nbsp;|&nbsp;2.303&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Conference-proceedings">Πρακτικά συνεδρίων</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/eproceedings"
+								target="_blank">| <span class="ekt-eproceedings-2">ΕΚΤ e</span><span class="ekt-eproceedings">Proceedings</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/eleetpea/el/file/αειφ.jpg" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/eleetpea"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Ελληνική Επιστημονική Εταιρεία Περιβαλλοντικής Εκπαίδευσης για την Αειφορία (ΕΛ.Ε.ΕΤ.Π.Ε.Α) <span
+				class="lastText text-muted">&nbsp;|&nbsp;57&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution">Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/enveducation"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Περιβαλλοντική Εκπαίδευση για την Αειφορία<span
+							class="text-muted lastText">&nbsp;|&nbsp;57&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/eea/el/file/eea.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/eea"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Ελληνική Εταιρεία Αξιολόγησης <span
+				class="lastText text-muted">&nbsp;|&nbsp;67&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Research-Institution">Ερευνητικός Φορέας/ Επιστημονική Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/eea"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Επιθεώρηση Ελληνικής Εταιρείας Αξιολόγησης<span
+							class="text-muted lastText">&nbsp;|&nbsp;67&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<hr class="institutions">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-align-center">
+				<img src="/aggregator-openarchives/portal/organisations/logo/gcla/el/file/gcla.png" class="organisation_logo"
+							onerror="this.onerror=null;this.src='/aggregator-openarchives/resources/1.46/img/nologo.png'">
+
+					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div class="ekt-voc-subtree-panel">
+		
+		
+
+		
+
+		
+
+		
+		
+		<span class="voc-label root"> <a
+			href="/aggregator-openarchives/portal/institutions/gcla"
+			class="institution-collection-link"> <i
+				class="fa fa-university green_text " aria-hidden="true"></i> Ελληνική Εταιρεία Γενικής και Συγκριτικής Γραμματολογίας  <span
+				class="lastText text-muted">&nbsp;|&nbsp;401&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+ <span class="text-muted lastText">
+				</span>
+			</span>
+		</a> 
+		</span>
+		
+			<br>
+			<label> 
+					<a class="btn btn-default btn-xs"
+						href="/aggregator-openarchives/portal/institutions?organizationTypeURI=http://semantics.gr/authorities/searchculture-institution-types/Scientific-Institution">Εταιρεία</a>
+				
+			</label>
+		
+
+		<ul class="list-unstyled">
+			
+
+				<hr class="less-margin-hr-collection">
+
+				
+
+				<li class="facet-value"><span class="voc-label">
+
+						<a href="/aggregator-openarchives/portal/collections/sygkrisi"
+						class="institution-collection-link"><i
+							class="fa fa-database text-muted" aria-hidden="true"></i> Σύγκριση<span
+							class="text-muted lastText">&nbsp;|&nbsp;401&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+	
+		τεκμήρια
+	
+	
+
+
+<span class="text-muted lastText">
+									
+							</span>
+						</span></a>
+
+
+
+				</span> 
+						<br>
+						<label> 
+								<a class="btn btn-default btn-xs"
+									href="/aggregator-openarchives/portal/collections?collectionTypeURI=http://semantics.gr/authorities/openarchives-collection-types/Journal">Περιοδικά</a>
+							
+													
+									&nbsp;<a href="https://econtent.ekt.gr/el/discovery/content/ejournals"
+								target="_blank">| <span class="ekt-ejournals-2">ΕΚΤ e</span><span class="ekt-ejournals">Journals</span></a>
+						
+						</label>
+
+					</li>
+
+			
+
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		//	$("[data-toggle='tooltip']").tooltip();
+	});
+</script>
+</div>
+		</div>
+		<div class="row">
+
+
+				<div class="col-xs-12 col-sm-6 col-md-6 edm-entity-result"
+					style="padding-bottom: 20px"></div>
+
+
+				<div class="col-xs-12 col-sm-6 col-md-6 text-right ">
+						<ul id="pagination2" class="pagination-sm"></ul>
+
+<script>
+	$(document).ready(function() {
+
+		var formId = 'institutionSearchForm';
+		var currentP = '1';
+		var pageSize = '30';
+		var itemsNum = '119';
+		var paginationId = 'pagination2';
+		var maxPages = '4';
+
+		var currentPageClass = '';
+		if (!currentPageClass) {
+			currentPageClass = 'current_page';
+		}
+
+		var onPageCl = function(event, pageNumber) {
+			$('#' + formId + " ." + currentPageClass).val(pageNumber);
+			$('#' + formId).submit();
+		};
+
+		$('#' + paginationId).twbsPagination({
+
+			totalPages : parseInt(maxPages),
+			startPage : parseInt(currentP),
+			visiblePages : 3,
+			prev : '◁',
+			next : '▷',
+			first : '◁◁',
+			last : '▷▷',
+			onPageClick : onPageCl
+		});
+	});
+
+	
+</script>
+						&nbsp;
+					</div>
+				</div>
+
+		</div>
+	</div>
+</form>
+
+<div class="before-footer"></div>
+
+<script>
+	$(document).ready(function() {
+
+		$(".select-sorting-results").select2({
+			minimumResultsForSearch : Infinity
+		});
+
+		$('.select-sorting-results').show().change(function(e) {
+
+			$(this).closest('form').find('.current_page').val('1');
+			$(this).closest("form").submit();
+
+		});
+
+	});
+
+	
+</script><!-- /container -->
+
+
+	</div>
+
+	<div class="container-fluid">
+		<footer class="footer">
+	<div class="row">
+
+		<div class="col-md-12 col-lg-6">
+			<div class="logos logos-icons">
+				<span><a href="/aggregator-openarchives/portal/" target="_blank"><img
+						class="footer-img-aggregator"
+						src="/aggregator-openarchives/resources/1.46/img/logo_home_btn_footer.png"></img></a></span>
+
+
+
+				<span> 
+
+
+					<a href="https://econtent.ekt.gr/el/pro/aggregation"
+								target="_blank"><img class="footer-img-aggregator"
+								src="/aggregator-openarchives/resources/1.46/img/logo_servisies_AGGREGATION_EKT_2018_dp_2.png"></img></a>
+						</span> <span> <a href="https://econtent.ekt.gr" target="_blank"> <img
+								class="footer-img-econtent"
+								src="/aggregator-openarchives/resources/1.46/img/econtent_footer_logo_gr.png"></img>
+							</a>
+						</span>
+
+
+
+			</div>
+		</div>
+		<div class="col-md-12 col-lg-3">
+			<ul class="social-list list-inline follow-ekt">
+				<li><span class="green_text">Follow</span> EKT</li>
+				<li><a href="https://www.facebook.com/EKTgr" target="_blank">
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+				</a></li>
+				<li><a href="https://twitter.com/EKTgr" target="_blank"> <i
+						class="fa fa-twitter" aria-hidden="true"></i>
+				</a></li>
+				<li><a href="https://www.linkedin.com/company/ektgr/"
+					target="_blank"> <i class="fa fa-linkedin" aria-hidden="true"></i>
+				</a></li>
+				<li><a href="https://www.youtube.com/user/ektgr"
+					target="_blank"> <i class="fa fa-youtube-play"
+						aria-hidden="true"></i>
+				</a></li>
+			</ul>
+		</div>
+		<div class="col-md-12 col-lg-3 logos logos-terms">
+			<p>
+				<span class="lastText"><span> <a
+						title='Επικοινωνία'
+						href="/aggregator-openarchives/portal/contact/form" target="blank"> Επικοινωνία</a></span> <span>|</span> <span> <a
+						title='Πολιτική Απορρήτου'
+						href="/aggregator-openarchives/portal/privacy"> Πολιτική Απορρήτου</a></span> </span> <span class="hidden-lg">|</span> <span class="lastText"> <span>
+						<a title='Όροι Χρήσης'
+						href="/aggregator-openarchives/portal/termsOfUse"> Όροι Χρήσης</a>
+				</span> <span>|</span> <span> <a
+						title='Πνευματική ιδιοκτησία'
+						href="/aggregator-openarchives/portal/license"> Πνευματική ιδιοκτησία</a></span>
+				</span>
+			</p>
+
+
+			<p class="footer-ekt-title-paragraph">
+				<span class="lastText"><span class="footer-ekt-title">©2025 Εθνικό Κέντρο Τεκμηρίωσης και Ηλεκτρονικού Περιεχομένου</span>  <a
+					href="https://creativecommons.org/licenses/by-sa/4.0/deed.el"
+					target="_blank"><img class="footer-img-cc"
+					src="/aggregator-openarchives/resources/1.46/img/cclogo.png"></img></a> </span>
+
+
+			</p>
+		</div>
+	</div>
+
+
+</footer>
+<div class="row vertical-align-justify-center large-padding">
+	<div class="col-xs-12" style="text-align: center">
+		<a href="https://mindigital.gr/" target="_blank"><img class="padding"
+			src="/aggregator-openarchives/resources/1.46/img/logo_ypoyrgeio_el.png" /></a>
+		
+	</div>
+</div>
+
+
+</div>
+
+	<div class="modal fade modal-wide" id="questionnaire" tabindex="-1"
+		data-focus-on="input:first">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h4 class="modal-title">
+						Βοηθείστε μας να κάνουμε καλύτερο το <span class="green_text">OpenArchives</span><span class="gray">.gr</span>.  </h4>
+				</div>
+				<div class="modal-body entity-view-body">
+					Πάρτε μέρος στη σύντομη έρευνα!<a href=""></a>
+				</div>
+
+
+				<div class="modal-footer">
+
+					<div>
+						<a
+							href="https://docs.google.com/forms/d/e/1FAIpQLSf1WLf_uwn0n82YxGse5NuEzUG0LcOCjg76eSCZ5gPiiBuRGg/viewform"
+							target="_blank" class="btn btn-default pull-left close-modal">Nαι, θα το κάνω τώρα</a>
+					</div>
+
+					<div>
+
+						<a href="#" class="btn btn-default pull-right close-modal">Όχι ευχαριστώ</a>
+					</div>
+
+
+				</div>
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			$('[data-toggle="tooltip"]').tooltip({
+				container : 'body'
+			});
+
+		});
+	</script>
+</body>
+</html>

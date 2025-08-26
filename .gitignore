@@ -1,0 +1,23 @@
+# OS junk
+.DS_Store
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Logs and run artifacts
+logs/
+*.log
+parallel_*.pid
+
+# Large crawl outputs (don’t version control)
+openarchives_results/
+openarchives_data/
+
+# Editor/IDE
+.idea/
+.vscode/
