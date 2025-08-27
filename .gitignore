@@ -64,6 +64,7 @@ analysis/scripts/*
 
 # Snapshots (optional; keep locally)
 snapshots/
+**/snapshots/
 
 # Tool caches
 .mypy_cache/
