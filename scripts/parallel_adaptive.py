@@ -109,6 +109,7 @@ def launch_child(
     concurrency: int,
     wait: float,
     retries: int,
+    child_timeout_s: float,
     force_http1: bool,
     ua_mode: str,
     limit: int = 0,
@@ -124,7 +125,7 @@ def launch_child(
         "--only-collections", slug,
         "--concurrency", str(int(concurrency)),
         "--wait", str(float(wait)),
-        "--timeout", "3.0",
+        "--timeout", str(float(child_timeout_s)),
         "--retries", str(int(retries)),
         "--log-level", "WARNING",
         "--checkpoint-every", "1000",
@@ -363,6 +364,7 @@ def main() -> None:
     ap.add_argument("--max-parallel", type=int, default=10)
     ap.add_argument("--per-concurrency", type=int, default=15)
     ap.add_argument("--wait", type=float, default=0.3)
+    ap.add_argument("--timeout", type=float, default=3.0)
     ap.add_argument("--retries", type=int, default=0)
     ap.add_argument("--retry-threshold", type=float, default=5.0, help="If error% >= threshold, run a retry pass")
     ap.add_argument("--retry-per-concurrency", type=int, default=10)
@@ -385,7 +387,9 @@ def main() -> None:
 
     slugs = select_slugs(cols, edm, exclude=list(args.exclude))
     # Precompute target unique counts per slug once to avoid repeated parquet scans
+    # Also compute residual targets after subtracting baseline 200s to align progress/ETA
     tgt_by_slug: dict[str, int] = {}
+    residual_by_slug: dict[str, int] = {}
     try:
         df_tgt = pd.read_parquet(edm, columns=["collection_slug","external_link","language_code"])  # type: ignore
         df_tgt = df_tgt[df_tgt["language_code"].isin(["ELL","NONE"]) & df_tgt["external_link"].notna()]
@@ -393,8 +397,21 @@ def main() -> None:
         tgt_by_slug = (
             df_tgt.groupby("collection_slug")["external_link"].nunique().astype(int).to_dict()
         )
+        base_ok_by_slug: dict[str, int] = {}
+        try:
+            base_path = Path(args.baseline) if args.baseline else None
+            if base_path and base_path.exists():
+                base = pd.read_parquet(base_path, columns=["collection_slug","external_link","status_code"])  # type: ignore
+                if not base.empty:
+                    base = base[(base["status_code"] == 200) & base["external_link"].notna()].copy()
+                    base["collection_slug"] = base["collection_slug"].astype(str)
+                    base_ok_by_slug = base.groupby("collection_slug")["external_link"].nunique().astype(int).to_dict()
+        except Exception:
+            base_ok_by_slug = {}
+        residual_by_slug = {s: max(0, int(tgt_by_slug.get(s, 0)) - int(base_ok_by_slug.get(s, 0))) for s in tgt_by_slug.keys()}
     except Exception:
         tgt_by_slug = {}
+        residual_by_slug = {}
     run_started = time.perf_counter()
     print(f"[run] started ts={dt.datetime.now().isoformat()} max_parallel={args.max_parallel} per_conc={args.per_concurrency} wait={args.wait} retries={args.retries} limit={args.limit} baseline={args.baseline}", flush=True)
     print(f"Total candidate slugs: {len(slugs)}", flush=True)
@@ -412,10 +429,10 @@ def main() -> None:
             tstr = ts()
             shard_path = shards_dir / f"external_pdfs__{s}__{tstr}.parquet"
             metrics_path = Path("logs") / f"metrics_{s}_{tstr}.csv"
-            total_tgt = int(tgt_by_slug.get(s, 0))
+            total_tgt = int(residual_by_slug.get(s, tgt_by_slug.get(s, 0)))
             proc = launch_child(
                 venv_python, edm, cols, shard_path, metrics_path, s,
-                concurrency=int(args.per_concurrency), wait=float(args.wait), retries=int(args.retries),
+                concurrency=int(args.per_concurrency), wait=float(args.wait), retries=int(args.retries), child_timeout_s=float(args.timeout),
                 force_http1=bool(args.force_http1), ua_mode=str(args.ua_mode), limit=int(args.limit), baseline=Path(args.baseline) if args.baseline else None,
             )
             now = time.perf_counter()
@@ -483,8 +500,14 @@ def main() -> None:
                     # Record shard for final merge (avoid duplicates)
                     if spec.shard_path not in done_shards:
                         done_shards.append(spec.shard_path)
-                    # Adaptive retry if threshold exceeded. IMPORTANT: do not block the loop.
-                    need_retry = rate >= float(args.retry_threshold)
+                    # Determine if unique work is already complete; if so, do not schedule post-run retries
+                    try:
+                        attempted_u_fin, _ok_u_fin, _s404_u_fin, _s5xx_u_fin, _neg_u_fin, _bc_best_fin = read_unique_breakdown(spec.shard_path)
+                    except Exception:
+                        attempted_u_fin = int(getattr(spec, 'last_attempted_u', 0))
+                    unique_done_fin = (attempted_u_fin >= (spec.total_target or attempted_u_fin))
+                    # Adaptive retry if threshold exceeded AND unique is not already complete. IMPORTANT: do not block the loop.
+                    need_retry = (rate >= float(args.retry_threshold)) and (not unique_done_fin)
                     if need_retry and int(getattr(spec, 'retry_passes', 0)) < int(args.max_retry_passes):
                         # Bump retry pass count and schedule retry occupying the same slot
                         try:
@@ -500,7 +523,7 @@ def main() -> None:
                             "--only-collections", spec.slug,
                             "--concurrency", str(int(args.retry_per_concurrency)),
                             "--wait", str(float(args.retry_wait)),
-                            "--timeout", "3.0",
+                            "--timeout", str(float(args.timeout)),
                             "--retries", "1",
                             "--resume",
                             "--log-level", "WARNING",
@@ -531,10 +554,10 @@ def main() -> None:
                         t2 = ts()
                         shard2 = shards_dir / f"external_pdfs__{s2}__{t2}.parquet"
                         metrics2 = Path("logs") / f"metrics_{s2}_{t2}.csv"
-                        total2 = int(tgt_by_slug.get(s2, 0))
+                        total2 = int(residual_by_slug.get(s2, tgt_by_slug.get(s2, 0)))
                         p2 = launch_child(
                             venv_python, edm, cols, shard2, metrics2, s2,
-                            concurrency=int(args.per_concurrency), wait=float(args.wait), retries=int(args.retries),
+                            concurrency=int(args.per_concurrency), wait=float(args.wait), retries=int(args.retries), child_timeout_s=float(args.timeout),
                             force_http1=bool(args.force_http1), ua_mode=str(args.ua_mode), limit=int(args.limit), baseline=Path(args.baseline) if args.baseline else None,
                         )
                         now2 = time.perf_counter()
@@ -592,6 +615,52 @@ def main() -> None:
                 # timeouts/exceptions are represented by negatives in the unique view for failish
                 timeouts = int(breakdown.get(-1, 0))
                 exceptions = int(breakdown.get(-2, 0))
+                # Deterministic stop: if unique work is complete AND the child reports no remaining work, stop it
+                try:
+                    m_remaining = int(_m_rem or 0)
+                except Exception:
+                    m_remaining = 0
+                if (attempted_u >= (spec.total_target or attempted_u)) and (m_remaining == 0):
+                    print(f"[stop] {spec.slug}: unique_done and remaining=0; terminating child.", flush=True)
+                    try:
+                        proc.terminate()
+                    except Exception:
+                        pass
+                    try:
+                        proc.wait(timeout=5)
+                    except Exception:
+                        pass
+                    del alive[pid]
+                    # allow rolling top-up if enabled
+                    if bool(args.rolling) and next_idx < len(slugs):
+                        s2 = slugs[next_idx]
+                        next_idx += 1
+                        t2 = ts()
+                        shard2 = shards_dir / f"external_pdfs__{s2}__{t2}.parquet"
+                        metrics2 = Path("logs") / f"metrics_{s2}_{t2}.csv"
+                        total2 = int(residual_by_slug.get(s2, tgt_by_slug.get(s2, 0)))
+                        p2 = launch_child(
+                            venv_python, edm, cols, shard2, metrics2, s2,
+                            concurrency=int(args.per_concurrency), wait=float(args.wait), retries=int(args.retries), child_timeout_s=float(args.timeout),
+                            force_http1=bool(args.force_http1), ua_mode=str(args.ua_mode), limit=int(args.limit), baseline=Path(args.baseline) if args.baseline else None,
+                        )
+                        now2 = time.perf_counter()
+                        spec2 = ChildSpec(
+                            slug=s2,
+                            shard_path=shard2,
+                            log_path=Path("logs")/f"parallel_{s2}_{t2}.log",
+                            metrics_path=metrics2,
+                            total_target=total2,
+                            start_ts=now2,
+                            last_attempted=0,
+                            last_ts=now2,
+                            stage=1,
+                            last_attempted_at_stage=0,
+                            last_m_ts=now2,
+                        )
+                        alive[id(p2)] = (p2, spec2)
+                        wave_specs.append(spec2)
+                    continue
                 delta_t = max(1e-6, now - spec.last_ts)
                 # Windowed unique-attempt delta for streak/backoff heuristics
                 d_attempt = max(0, attempted - spec.last_attempted)
@@ -646,45 +715,46 @@ def main() -> None:
                 spec.last_ts = now
 
                 # Stage backoff logic (A->B->C) based on fail% at current stage
-                progressed_this_stage = max(0, effective_attempted - spec.last_attempted_at_stage)
-                if progressed_this_stage >= 300:
-                    if spec.stage == 1 and fail_pct >= 20.0:
-                        print(f"[stage] {spec.slug}: A→B (conc=10 wait=0.5) fail%={fail_pct:.1f} over {progressed_this_stage} attempts", flush=True)
-                        try:
-                            proc.terminate(); proc.wait(timeout=5)
-                        except Exception:
-                            pass
-                        cmd2 = [
-                            str(venv_python), "-m", "scraper.fast_scraper.crawl_external_pdfs",
-                            "--edm", str(edm.resolve()),
-                            "--collections", str(cols.resolve()),
-                            "--out", str(spec.shard_path.resolve()),
-                            "--only-collections", spec.slug,
-                            "--concurrency", "10",
-                            "--wait", "0.5",
-                            "--timeout", "3.0",
-                            "--retries", "1",
-                            "--resume",
-                            "--log-level", "WARNING",
-                            "--checkpoint-every", "1000",
-                            "--checkpoint-seconds", "10",
-                            "--metrics-chunk", "250",
-                            "--metrics-out", str(spec.metrics_path.resolve()),
-                        ]
-                        if args.baseline:
-                            cmd2.extend(["--resume-baseline", str(Path(args.baseline).resolve())])
-                        if bool(args.force_http1):
-                            cmd2.append("--force-http1")
-                        if str(args.ua_mode)=="random":
-                            cmd2.append("--random-user-agent")
-                        elif str(args.ua_mode)=="per_domain":
-                            cmd2.append("--per-domain-user-agent")
-                        with open(spec.log_path, 'ab', buffering=0) as lf:
-                            newp = subprocess.Popen(cmd2, stdout=lf, stderr=subprocess.STDOUT)
-                        alive[pid] = (newp, spec)
-                        spec.stage = 2
-                        spec.last_attempted_at_stage = effective_attempted
-                    elif spec.stage == 2 and fail_pct >= 30.0:
+                # Do not relaunch stages once unique work is complete
+                if attempted_u < (spec.total_target or attempted_u):
+                    progressed_this_stage = max(0, effective_attempted - spec.last_attempted_at_stage)
+                    if progressed_this_stage >= 300 and spec.stage == 1 and fail_pct >= 20.0:
+                            print(f"[stage] {spec.slug}: A→B (conc=10 wait=0.5) fail%={fail_pct:.1f} over {progressed_this_stage} attempts", flush=True)
+                            try:
+                                proc.terminate(); proc.wait(timeout=5)
+                            except Exception:
+                                pass
+                            cmd2 = [
+                                str(venv_python), "-m", "scraper.fast_scraper.crawl_external_pdfs",
+                                "--edm", str(edm.resolve()),
+                                "--collections", str(cols.resolve()),
+                                "--out", str(spec.shard_path.resolve()),
+                                "--only-collections", spec.slug,
+                                "--concurrency", "10",
+                                "--wait", "0.5",
+                                "--timeout", str(float(args.timeout)),
+                                "--retries", "1",
+                                "--resume",
+                                "--log-level", "WARNING",
+                                "--checkpoint-every", "1000",
+                                "--checkpoint-seconds", "10",
+                                "--metrics-chunk", "250",
+                                "--metrics-out", str(spec.metrics_path.resolve()),
+                            ]
+                            if args.baseline:
+                                cmd2.extend(["--resume-baseline", str(Path(args.baseline).resolve())])
+                            if bool(args.force_http1):
+                                cmd2.append("--force-http1")
+                            if str(args.ua_mode)=="random":
+                                cmd2.append("--random-user-agent")
+                            elif str(args.ua_mode)=="per_domain":
+                                cmd2.append("--per-domain-user-agent")
+                            with open(spec.log_path, 'ab', buffering=0) as lf:
+                                newp = subprocess.Popen(cmd2, stdout=lf, stderr=subprocess.STDOUT)
+                            alive[pid] = (newp, spec)
+                            spec.stage = 2
+                            spec.last_attempted_at_stage = effective_attempted
+                    if progressed_this_stage >= 300 and spec.stage == 2 and fail_pct >= 30.0:
                         print(f"[stage] {spec.slug}: B→C (conc=5 wait=1.0) fail%={fail_pct:.1f} over {progressed_this_stage} attempts", flush=True)
                         try:
                             proc.terminate(); proc.wait(timeout=5)
@@ -698,7 +768,7 @@ def main() -> None:
                             "--only-collections", spec.slug,
                             "--concurrency", "5",
                             "--wait", "1.0",
-                            "--timeout", "3.0",
+                            "--timeout", str(float(args.timeout)),
                             "--retries", "1",
                             "--resume",
                             "--log-level", "WARNING",
@@ -797,10 +867,10 @@ def main() -> None:
                         t2 = ts()
                         shard2 = shards_dir / f"external_pdfs__{s2}__{t2}.parquet"
                         metrics2 = Path("logs") / f"metrics_{s2}_{t2}.csv"
-                        total2 = int(tgt_by_slug.get(s2, 0))
+                        total2 = int(residual_by_slug.get(s2, tgt_by_slug.get(s2, 0)))
                         p2 = launch_child(
                             venv_python, edm, cols, shard2, metrics2, s2,
-                            concurrency=int(args.per_concurrency), wait=float(args.wait), retries=int(args.retries),
+                            concurrency=int(args.per_concurrency), wait=float(args.wait), retries=int(args.retries), child_timeout_s=float(args.timeout),
                             force_http1=bool(args.force_http1), ua_mode=str(args.ua_mode), limit=int(args.limit), baseline=Path(args.baseline) if args.baseline else None,
                         )
                         now2 = time.perf_counter()
@@ -824,7 +894,7 @@ def main() -> None:
             if bool(args.rolling) and next_idx < len(slugs):
                 try:
                     for s in slugs[next_idx:]:
-                        queued_remaining += int(tgt_by_slug.get(s, 0))
+                        queued_remaining += int(residual_by_slug.get(s, tgt_by_slug.get(s, 0)))
                 except Exception:
                     queued_remaining = 0
             total_remaining = int(g_total_rem) + int(queued_remaining)

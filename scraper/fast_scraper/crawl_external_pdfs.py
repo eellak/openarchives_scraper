@@ -47,6 +47,7 @@ from collections import defaultdict
 import csv
 import random
 from email.utils import parsedate_to_datetime
+from datetime import datetime, timezone
 
 import httpx
 import pandas as pd
@@ -148,7 +149,11 @@ def _parse_retry_after(val: str) -> float:
             dt = parsedate_to_datetime(val)
             if dt is None:
                 return 0.0
-            return max(0.0, (dt - parsedate_to_datetime(time.strftime('%a, %d %b %Y %H:%M:%S GMT', time.gmtime()))).total_seconds())
+            now_utc = datetime.now(timezone.utc)
+            # Ensure dt is timezone-aware; if not, assume UTC
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return max(0.0, (dt - now_utc).total_seconds())
         except Exception:
             return 0.0
 
@@ -185,7 +190,7 @@ async def _fetch_page(
             "Referer": f"{urlparse(url).scheme}://{urlparse(url).netloc}/",
         }
         resp = await client.get(url, headers=headers)
-        # Respect Retry-After for 429/503; add decorrelated backoff
+        # Respect Retry-After for 429/503; add decorrelated backoff, and re-attempt once
         if resp.status_code in (429, 503):
             ra = 0.0
             try:
@@ -200,6 +205,8 @@ async def _fetch_page(
                     await asyncio.sleep(min(60.0, float(ra)))
                 except Exception:
                     pass
+                # One bounded immediate retry after Retry-After
+                resp = await client.get(url, headers=headers)
         return resp
 
     t0 = time.perf_counter()

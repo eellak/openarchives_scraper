@@ -18,6 +18,7 @@ parallel_*.pid
 openarchives_results/backups
 openarchives_results/shards
 openarchives_data/
+openarchives_results/**/*.csv
 
 # Archive buckets
 scripts/_archive/
@@ -31,6 +32,35 @@ analysis/**/*.json
 analysis/**/*.parquet
 analysis/**/*.png
 analysis/**/__pycache__/
+analysis/**/*.csv
+analysis/**/*.tsv
+
+# Ignore docs entirely (local notes, reviews)
+docs/
+
+# Narrow what we keep from analysis: only type/language rules and key scripts
+# Ignore analysis broadly, then allow-list specific files
+analysis/*
+!analysis/README.md
+!analysis/types/
+!analysis/languages/
+!analysis/scripts/
+
+# Inside types: keep rules .txt and helper scripts; ignore the rest
+analysis/types/*
+!analysis/types/*.txt
+!analysis/types/apply_labels.py
+!analysis/types/check_duplicates.py
+!analysis/types/fix_type_rules.py
+
+# Inside languages: keep language rules and stats script
+analysis/languages/*
+!analysis/languages/language_rules.txt
+!analysis/languages/collections_language_stats.py
+
+# Inside analysis/scripts: keep token/stemming generator if present
+analysis/scripts/*
+!analysis/scripts/run_type_stem6.py
 
 # Snapshots (optional; keep locally)
 snapshots/
