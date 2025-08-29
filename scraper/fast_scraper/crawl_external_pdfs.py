@@ -107,25 +107,73 @@ def _is_pdf_url(url: str) -> bool:
 
 
 def extract_pdf_links_in_order(html: str, base_url: str) -> List[str]:
-    """Find .pdf links in the order they appear in the HTML.
+    """Find likely PDF links in the order they appear in the HTML.
 
-    - Scans href/src attributes once; resolves relative URLs
-    - Keeps the first occurrence of each absolute URL to preserve order
-    - Ignores malformed URLs and non-PDF resources
+    Enhanced heuristics:
+    - Head meta: citation_pdf_url and link rel alternate/enclosure type=application/pdf
+    - Body: href/src attributes
+    - JS viewer patterns: pdfjs/viewer.html?file=... and similar (extract underlying file URL)
+    - Platform endpoints: accept /bitstream(s)/, /article/download/, /download/, /view/manf/
+    - Always resolve relative URLs and deduplicate while preserving first-seen order
     """
     if not html:
         return []
+
+    # Precompile auxiliary regexes locally (module-level could be fine too)
+    meta_pdf_re = re.compile(r'<meta[^>]+name=[\"\']citation_pdf_url[\"\'][^>]+content=[\"\']([^\"\']+)[\"\']', re.IGNORECASE)
+    link_alt_pdf_re = re.compile(r'<link[^>]+rel=[\"\'](?:alternate|enclosure)[\"\'][^>]+href=[\"\']([^\"\']+)[\"\'][^>]+type=[\"\']application/pdf[\"\']', re.IGNORECASE)
+    href_re = re.compile(r'href=[\"\']([^\"\']+)[\"\']', re.IGNORECASE)
+    src_re = re.compile(r'src=[\"\']([^\"\']+)[\"\']', re.IGNORECASE)
+    js_viewer_re = re.compile(r'(?:pdfjs|viewer)\.(?:html|php)[^\"\']*?\b(?:file|url)=([^\"\'&>]+)', re.IGNORECASE)
+
+    accept_patterns = [
+        re.compile(r'\.pdf($|[?#])', re.IGNORECASE),
+        re.compile(r'/bitstream[s]?/', re.IGNORECASE),
+        re.compile(r'/article/download/', re.IGNORECASE),
+        re.compile(r'/download/', re.IGNORECASE),
+        re.compile(r'/view/manf/', re.IGNORECASE),
+        re.compile(r'viewer\.html\?file=', re.IGNORECASE),
+        re.compile(r'pdfjs', re.IGNORECASE),
+    ]
+
+    def _accept(u: str) -> bool:
+        return any(rx.search(u) for rx in accept_patterns)
+
+    # Collect candidates from multiple locations
+    cands: List[str] = []
+    # 1) Head meta/link
+    for rx in (meta_pdf_re, link_alt_pdf_re):
+        for m in rx.finditer(html):
+            cands.append(m.group(1))
+    # 2) JS viewer-style file param
+    for m in js_viewer_re.finditer(html):
+        try:
+            cands.append(urljoin(base_url, m.group(1)))
+        except Exception:
+            cands.append(m.group(1))
+    # 3) href and src attributes
+    for m in href_re.finditer(html):
+        cands.append(m.group(1))
+    for m in src_re.finditer(html):
+        cands.append(m.group(1))
+
+    # Resolve, filter, and deduplicate in order
     seen = set()
     ordered: List[str] = []
-    for m in _HREF_SRC_RE.finditer(html):
-        raw = (m.group(1) or m.group(2) or "").strip()
+    for raw in cands:
         if not raw:
             continue
         # Skip anchors and javascript:void
         if raw.startswith("#") or raw.lower().startswith("javascript:"):
             continue
-        abs_url = urljoin(base_url, raw)
-        if not _is_pdf_url(abs_url):
+        try:
+            abs_url = urljoin(base_url, raw)
+        except Exception:
+            abs_url = raw
+        # Ignore known non-PDF citation download endpoints (RIS/BibTeX)
+        if 'citationstylelanguage/download/ris' in abs_url:
+            continue
+        if not _accept(abs_url):
             continue
         if abs_url in seen:
             continue
@@ -296,10 +344,11 @@ async def run(
     # Prepare resume/baseline state
     combined_status: Dict[str, int] = {}
     prev_retries_by_url: Dict[str, int] = {}
+    already_has_pdf: set[str] = set()
     # Baseline from a master parquet (skip already-200 entries globally)
     if baseline_parquet and baseline_parquet.exists():
         try:
-            base = pd.read_parquet(baseline_parquet, columns=["external_link", "status_code", "retries"]).copy()
+            base = pd.read_parquet(baseline_parquet, columns=["external_link", "status_code", "retries", "pdf_links_count"]).copy()
             if not base.empty:
                 base = base.dropna(subset=["external_link"]).copy()
                 # Keep last occurrence per URL, prefer 200 when present
@@ -310,12 +359,18 @@ async def run(
                 # Track previous retries (max seen per URL)
                 if "retries" in bestb.columns:
                     prev_retries_by_url.update(bestb.set_index("external_link")["retries"].fillna(0).astype(int).to_dict())
+                # Track URLs already known to have PDFs
+                try:
+                    if "pdf_links_count" in bestb.columns:
+                        already_has_pdf.update(bestb[bestb["pdf_links_count"].fillna(0).astype(int) > 0]["external_link"].astype(str).tolist())
+                except Exception:
+                    pass
         except Exception:
             pass
     # Add current out_parquet state if resuming
     if out_parquet.exists():
         try:
-            old = pd.read_parquet(out_parquet, columns=["external_link", "status_code", "retries"]).copy()
+            old = pd.read_parquet(out_parquet, columns=["external_link", "status_code", "retries", "pdf_links_count"]).copy()
             if not old.empty:
                 old["_ok"] = (old["status_code"] == 200).astype(int)
                 old["retries"] = old.get("retries", 0).fillna(0).astype(int)
@@ -324,19 +379,36 @@ async def run(
                 # Update/override baseline with latest
                 combined_status.update(best.set_index("external_link")["status_code"].to_dict())
                 prev_retries_by_url.update(best.set_index("external_link")["retries"].to_dict())
+                try:
+                    if "pdf_links_count" in best.columns:
+                        already_has_pdf.update(best[best["pdf_links_count"].fillna(0).astype(int) > 0]["external_link"].astype(str).tolist())
+                except Exception:
+                    pass
         except Exception:
             pass
 
-    if resume:
+    resample_nopdf = bool(getattr(run, "_resample_nopdf", False))
+    if bool(getattr(run, "_full_rescan", False)):
+        work_links = list(unique_links)
+    elif resume:
         if retries > 0:
-            base = [u for u in unique_links if (u in combined_status)] if retry_only else unique_links
-            work_links = [u for u in base if int(combined_status.get(u, 0)) != 200]
+            base_list = [u for u in unique_links if (u in combined_status)] if retry_only else unique_links
+            work_links = []
+            for u in base_list:
+                sc = int(combined_status.get(u, 0) or 0)
+                if sc != 200 or (resample_nopdf and (u not in already_has_pdf)):
+                    work_links.append(u)
         else:
-            # Skip anything we have seen in combined (baseline or out)
-            work_links = [u for u in unique_links if u not in combined_status or int(combined_status.get(u, 0)) != 200]
+            work_links = []
+            for u in unique_links:
+                sc = int(combined_status.get(u, 0) or 0)
+                if u in already_has_pdf:
+                    continue
+                if sc != 200 or resample_nopdf:
+                    work_links.append(u)
     else:
-        # Even without resume, skip URLs already 200 in baseline/out
-        work_links = [u for u in unique_links if int(combined_status.get(u, 0)) != 200]
+        # Without resume, include URLs not known to already have PDFs
+        work_links = [u for u in unique_links if u not in already_has_pdf]
 
     attempts = 0
     completed = 0
@@ -473,6 +545,8 @@ async def run(
                     "elapsed_s": float(elapsed),
                     "pdf_links_json": json.dumps(pdfs, ensure_ascii=False),
                     "pdf_links_count": int(len(pdfs)),
+                    "refined_pdf_links_json": json.dumps(pdfs, ensure_ascii=False),
+                    "refined_pdf_links_count": int(len(pdfs)),
                     "retries": int(prev_retry_offset + retries_value),
                 }
             except httpx.TimeoutException as e:
@@ -486,6 +560,8 @@ async def run(
                     "elapsed_s": 0.0,
                     "pdf_links_json": json.dumps([], ensure_ascii=False),
                     "pdf_links_count": 0,
+                    "refined_pdf_links_json": json.dumps([], ensure_ascii=False),
+                    "refined_pdf_links_count": 0,
                     "retries": int(prev_retry_offset + retries_value),
                 }
             except httpx.HTTPError as e:
@@ -502,6 +578,8 @@ async def run(
                     "elapsed_s": 0.0,
                     "pdf_links_json": json.dumps([], ensure_ascii=False),
                     "pdf_links_count": 0,
+                    "refined_pdf_links_json": json.dumps([], ensure_ascii=False),
+                    "refined_pdf_links_count": 0,
                     "retries": int(prev_retry_offset + retries_value),
                 }
             except Exception:
@@ -518,6 +596,8 @@ async def run(
                     "elapsed_s": 0.0,
                     "pdf_links_json": json.dumps([], ensure_ascii=False),
                     "pdf_links_count": 0,
+                    "refined_pdf_links_json": json.dumps([], ensure_ascii=False),
+                    "refined_pdf_links_count": 0,
                     "retries": int(prev_retry_offset + retries_value),
                 }
             finally:
@@ -896,6 +976,8 @@ def main() -> None:
     p.add_argument("--random-user-agent", action="store_true", help="Use randomized User-Agent per request")
     p.add_argument("--per-domain-user-agent", action="store_true", help="Use a deterministic random User-Agent per domain")
     p.add_argument("--resume-baseline", default=None, help="Optional master parquet path; skip URLs already 200 there")
+    p.add_argument("--resample-nopdf", action="store_true", default=False, help="Reprocess URLs that are 200 but have pdf_links_count==0 in baseline/out")
+    p.add_argument("--full-rescan", action="store_true", default=False, help="Ignore baseline/out skip logic and process all unique external links")
     p.add_argument("--only-collections", nargs="*", default=None, help="If provided, include only these collection slugs")
     args = p.parse_args()
 
@@ -910,9 +992,11 @@ def main() -> None:
         logging.getLogger("httpcore").setLevel(logging.DEBUG)
 
     comp = None if (args.compression or "snappy").lower() == "none" else args.compression
-    # Pass force-http1 flag to run() via attribute to avoid signature change
+    # Pass flags to run() via attributes to avoid signature change
     setattr(run, "_force_http1", bool(args.force_http1))
     setattr(run, "_ua_mode", "random" if args.random_user_agent else ("per_domain" if args.per_domain_user_agent else "fixed"))
+    setattr(run, "_resample_nopdf", bool(args.resample_nopdf))
+    setattr(run, "_full_rescan", bool(args.full_rescan))
     asyncio.run(
         run(
             Path(args.edm),

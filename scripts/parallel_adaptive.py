@@ -146,8 +146,22 @@ def launch_child(
     # Emit a one-line launch summary to orchestrator stdout
     print(f"[launch] {slug}: conc={concurrency} wait={wait}s retries={retries} baseline={'yes' if baseline else 'no'} -> {shard_path}", flush=True)
     # Open per-collection log in append-binary mode and close in parent to avoid FD leaks.
+    # Ensure PYTHONPATH points to project root so 'scraper' package resolves
+    env = os.environ.copy()
+    try:
+        proj_root = Path(__file__).resolve().parents[1]
+        pypp = env.get("PYTHONPATH", "")
+        sep = os.pathsep
+        add = str(proj_root)
+        if pypp:
+            if add not in pypp.split(sep):
+                env["PYTHONPATH"] = add + sep + pypp
+        else:
+            env["PYTHONPATH"] = add
+    except Exception:
+        pass
     with open(log_path, "ab", buffering=0) as fh:
-        proc = subprocess.Popen(cmd, stdout=fh, stderr=subprocess.STDOUT)
+        proc = subprocess.Popen(cmd, stdout=fh, stderr=subprocess.STDOUT, env=env)
     return proc
 
 
@@ -377,6 +391,8 @@ def main() -> None:
     ap.add_argument("--limit", type=int, default=0, help="Optional capped input per collection during testing")
     ap.add_argument("--merge-each-wave", action="store_true")
     ap.add_argument("--rolling", action="store_true", help="Top up pool to max-parallel by launching next slugs as soon as one finishes")
+    ap.add_argument("--only-slugs", nargs="*", default=None, help="If provided, restrict run to these collection slugs (after selection & exclude)")
+    ap.add_argument("--overrides-json", default=None, help="Optional JSON file with per-slug overrides: {slug: {per_concurrency, wait, timeout, retries, ua_mode, force_http1, retry_per_concurrency, retry_wait}}")
     args = ap.parse_args()
 
     edm = Path(args.edm)
@@ -386,6 +402,32 @@ def main() -> None:
     venv_python = Path(os.environ.get("VENV_PY", ".venv/bin/python"))
 
     slugs = select_slugs(cols, edm, exclude=list(args.exclude))
+    if args.only_slugs:
+        try:
+            only_set = set([s for s in args.only_slugs if s])
+            slugs = [s for s in slugs if s in only_set]
+        except Exception:
+            pass
+
+    # Load per-slug overrides if provided
+    overrides: dict[str, dict] = {}
+    if args.overrides_json:
+        try:
+            import json
+            with open(args.overrides_json, 'r', encoding='utf-8') as fh:
+                data = json.load(fh)
+                if isinstance(data, dict):
+                    overrides = {str(k): dict(v) for k, v in data.items()}
+        except Exception:
+            overrides = {}
+
+    def _eff(slug: str, key: str, default):
+        try:
+            ov = overrides.get(str(slug), {})
+            val = ov.get(key, None)
+            return default if (val is None) else val
+        except Exception:
+            return default
     # Precompute target unique counts per slug once to avoid repeated parquet scans
     # Also compute residual targets after subtracting baseline 200s to align progress/ETA
     tgt_by_slug: dict[str, int] = {}
@@ -401,11 +443,22 @@ def main() -> None:
         try:
             base_path = Path(args.baseline) if args.baseline else None
             if base_path and base_path.exists():
-                base = pd.read_parquet(base_path, columns=["collection_slug","external_link","status_code"])  # type: ignore
+                # Try to prefer rows that already have PDFs in baseline; fall back to all 200s
+                base_cols = ["collection_slug","external_link","status_code","pdf_links_count"]
+                try:
+                    base = pd.read_parquet(base_path, columns=base_cols)  # type: ignore
+                except Exception:
+                    base = pd.read_parquet(base_path, columns=base_cols[:3])  # type: ignore
+                    base["pdf_links_count"] = 0
                 if not base.empty:
-                    base = base[(base["status_code"] == 200) & base["external_link"].notna()].copy()
+                    base = base[base["external_link"].notna()].copy()
                     base["collection_slug"] = base["collection_slug"].astype(str)
-                    base_ok_by_slug = base.groupby("collection_slug")["external_link"].nunique().astype(int).to_dict()
+                    # Count only those URLs that already have PDFs if the column exists; else count 200s
+                    if "pdf_links_count" in base.columns:
+                        b2 = base[(base["status_code"] == 200) & (base.get("pdf_links_count", 0).fillna(0).astype(int) > 0)].copy()
+                    else:
+                        b2 = base[(base["status_code"] == 200)].copy()
+                    base_ok_by_slug = b2.groupby("collection_slug")["external_link"].nunique().astype(int).to_dict()
         except Exception:
             base_ok_by_slug = {}
         residual_by_slug = {s: max(0, int(tgt_by_slug.get(s, 0)) - int(base_ok_by_slug.get(s, 0))) for s in tgt_by_slug.keys()}
@@ -430,10 +483,18 @@ def main() -> None:
             shard_path = shards_dir / f"external_pdfs__{s}__{tstr}.parquet"
             metrics_path = Path("logs") / f"metrics_{s}_{tstr}.csv"
             total_tgt = int(residual_by_slug.get(s, tgt_by_slug.get(s, 0)))
+            # Effective per-slug settings (overrides fall back to CLI defaults)
+            eff_conc = int(_eff(s, 'per_concurrency', int(args.per_concurrency)))
+            eff_wait = float(_eff(s, 'wait', float(args.wait)))
+            eff_timeout = float(_eff(s, 'timeout', float(args.timeout)))
+            eff_retries = int(_eff(s, 'retries', int(args.retries)))
+            eff_force_h1 = bool(_eff(s, 'force_http1', bool(args.force_http1)))
+            eff_ua = str(_eff(s, 'ua_mode', str(args.ua_mode)))
+            eff_limit = int(_eff(s, 'limit', int(args.limit))) if hasattr(args, 'limit') else int(args.limit)
             proc = launch_child(
                 venv_python, edm, cols, shard_path, metrics_path, s,
-                concurrency=int(args.per_concurrency), wait=float(args.wait), retries=int(args.retries), child_timeout_s=float(args.timeout),
-                force_http1=bool(args.force_http1), ua_mode=str(args.ua_mode), limit=int(args.limit), baseline=Path(args.baseline) if args.baseline else None,
+                concurrency=eff_conc, wait=eff_wait, retries=eff_retries, child_timeout_s=eff_timeout,
+                force_http1=eff_force_h1, ua_mode=eff_ua, limit=eff_limit, baseline=Path(args.baseline) if args.baseline else None,
             )
             now = time.perf_counter()
             spec0 = ChildSpec(
@@ -515,14 +576,17 @@ def main() -> None:
                         except Exception:
                             pass
                         print(f"[{spec.slug}] scheduling retry with lower concurrency", flush=True)
+                        # Use per-slug retry overrides if present
+                        eff_r_conc = int(_eff(spec.slug, 'retry_per_concurrency', int(args.retry_per_concurrency)))
+                        eff_r_wait = float(_eff(spec.slug, 'retry_wait', float(args.retry_wait)))
                         retry_cmd = [
                             str(venv_python), "-m", "scraper.fast_scraper.crawl_external_pdfs",
                             "--edm", str(edm.resolve()),
                             "--collections", str(cols.resolve()),
                             "--out", str(spec.shard_path.resolve()),
                             "--only-collections", spec.slug,
-                            "--concurrency", str(int(args.retry_per_concurrency)),
-                            "--wait", str(float(args.retry_wait)),
+                            "--concurrency", str(eff_r_conc),
+                            "--wait", str(eff_r_wait),
                             "--timeout", str(float(args.timeout)),
                             "--retries", "1",
                             "--resume",
@@ -555,10 +619,17 @@ def main() -> None:
                         shard2 = shards_dir / f"external_pdfs__{s2}__{t2}.parquet"
                         metrics2 = Path("logs") / f"metrics_{s2}_{t2}.csv"
                         total2 = int(residual_by_slug.get(s2, tgt_by_slug.get(s2, 0)))
+                        eff2_conc = int(_eff(s2, 'per_concurrency', int(args.per_concurrency)))
+                        eff2_wait = float(_eff(s2, 'wait', float(args.wait)))
+                        eff2_timeout = float(_eff(s2, 'timeout', float(args.timeout)))
+                        eff2_retries = int(_eff(s2, 'retries', int(args.retries)))
+                        eff2_force_h1 = bool(_eff(s2, 'force_http1', bool(args.force_http1)))
+                        eff2_ua = str(_eff(s2, 'ua_mode', str(args.ua_mode)))
+                        eff2_limit = int(_eff(s2, 'limit', int(args.limit))) if hasattr(args, 'limit') else int(args.limit)
                         p2 = launch_child(
                             venv_python, edm, cols, shard2, metrics2, s2,
-                            concurrency=int(args.per_concurrency), wait=float(args.wait), retries=int(args.retries), child_timeout_s=float(args.timeout),
-                            force_http1=bool(args.force_http1), ua_mode=str(args.ua_mode), limit=int(args.limit), baseline=Path(args.baseline) if args.baseline else None,
+                            concurrency=eff2_conc, wait=eff2_wait, retries=eff2_retries, child_timeout_s=eff2_timeout,
+                            force_http1=eff2_force_h1, ua_mode=eff2_ua, limit=eff2_limit, baseline=Path(args.baseline) if args.baseline else None,
                         )
                         now2 = time.perf_counter()
                         spec2 = ChildSpec(

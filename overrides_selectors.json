@@ -1,0 +1,20 @@
+{
+  "deltion":  {"per_concurrency": 3, "wait": 0.3, "timeout": 12, "retries": 1, "ua_mode": "random", "force_http1": true},
+  "ekke":     {"per_concurrency": 3, "wait": 0.3, "timeout": 12, "retries": 1, "ua_mode": "random", "force_http1": true},
+  "JHVMS":    {"per_concurrency": 2, "wait": 0.5, "timeout": 15, "retries": 1, "ua_mode": "random", "force_http1": true},
+  "geosociety": {"per_concurrency": 3, "wait": 0.3, "timeout": 12, "retries": 1, "ua_mode": "random", "force_http1": true},
+  "cetpe":    {"per_concurrency": 1, "wait": 0.6, "timeout": 18, "retries": 1, "ua_mode": "random", "force_http1": true},
+  "makedonika": {"per_concurrency": 3, "wait": 0.3, "timeout": 12, "retries": 1, "ua_mode": "random", "force_http1": true},
+  "pasithee": {"per_concurrency": 2, "wait": 0.4, "timeout": 12, "retries": 1, "ua_mode": "random", "force_http1": true},
+
+  "helios":   {"per_concurrency": 8, "wait": 0.2, "timeout": 10, "retries": 0, "ua_mode": "random", "force_http1": false},
+  "hellanicus": {"per_concurrency": 8, "wait": 0.2, "timeout": 10, "retries": 0, "ua_mode": "random", "force_http1": false},
+  "rep_ihu":  {"per_concurrency": 8, "wait": 0.2, "timeout": 10, "retries": 0, "ua_mode": "random", "force_http1": false},
+  "pergamos": {"per_concurrency": 6, "wait": 0.2, "timeout": 10, "retries": 0, "ua_mode": "random", "force_http1": false},
+  "pyxida":   {"per_concurrency": 3, "wait": 0.3, "timeout": 14, "retries": 1, "ua_mode": "random", "force_http1": false},
+  "kallipos": {"per_concurrency": 6, "wait": 0.2, "timeout": 10, "retries": 0, "ua_mode": "random", "force_http1": false},
+
+  "Pandemos": {"per_concurrency": 2, "wait": 0.3, "timeout": 12, "retries": 1, "ua_mode": "random", "force_http1": true},
+  "dias":     {"per_concurrency": 3, "wait": 0.2, "timeout": 12, "retries": 1, "ua_mode": "random", "force_http1": true},
+  "deltion":  {"per_concurrency": 3, "wait": 0.4, "timeout": 14, "retries": 1, "ua_mode": "random", "force_http1": true}
+}
