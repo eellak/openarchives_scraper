@@ -40,12 +40,12 @@ Pipeline
      --out-labeled openarchives_results/edm_metadata_labeled.parquet
 
 4) Crawl external item pages and extract PDF links (parallel)
-   .venv/bin/python scripts/parallel_adaptive.py \
-     --edm openarchives_results/edm_metadata_labeled.parquet \
-     --collections openarchives_results/collections_links_enriched_ge1k_sorted.parquet \
-     --out openarchives_results/external_pdfs.parquet \
-     --max-parallel 10 --per-concurrency 15 --retries 0 \
-     --ua-mode random --force-http1 --rolling
+  .venv/bin/python scripts/parallel_adaptive.py \
+    --edm openarchives_results/edm_metadata_labeled.parquet \
+    --collections openarchives_results/collections_links_enriched_ge1k_sorted.parquet \
+    --out openarchives_results/external_pdfs.parquet \
+    --max-parallel 10 --per-concurrency 15 --retries 0 \
+    --ua-mode random --force-http1 --rolling
 
    Notes:
    - Writes per-collection shards to openarchives_results/shards/
@@ -66,6 +66,35 @@ Operational tips
 - Metrics per collection: logs/metrics_{slug}_{timestamp}.csv (t_epoch, completed, failed, fail_pct, speed_ps, eta_s, remaining)
 - Common env knobs for orchestrator: STATUS_INTERVAL_S, PARQUET_REFRESH_S
 
+Per-collection overrides (advanced)
+- Run different collections with different settings in one orchestration using a JSON overrides file:
+  overrides.json:
+  {
+    "deltion":  {"per_concurrency":4, "wait":0.3, "timeout":12, "retries":1, "ua_mode":"random", "force_http1":true},
+    "helios":   {"per_concurrency":8, "wait":0.2, "timeout":10, "retries":0},
+    "Pandemos": {"per_concurrency":2, "wait":0.3, "timeout":12, "retries":1, "ua_mode":"random", "force_http1":true},
+    "dias":     {"per_concurrency":3, "wait":0.2, "timeout":12, "retries":1, "ua_mode":"random", "force_http1":true}
+  }
+
+  .venv/bin/python scripts/parallel_adaptive.py \
+    --edm openarchives_results/edm_metadata_labeled.parquet \
+    --collections openarchives_results/collections_links_enriched_ge1k_sorted.parquet \
+    --out openarchives_results/external_pdfs.parquet \
+    --max-parallel 6 --per-concurrency 4 --retries 0 \
+    --ua-mode random --force-http1 --rolling --merge-each-wave \
+    --overrides-json overrides.json \
+    --only-slugs deltion ekke JHVMS geosociety cetpe makedonika pasithee helios hellanicus rep_ihu pergamos pyxida kallipos Pandemos dias \
+    --baseline openarchives_results/external_pdfs.parquet
+
+Resampling 200/no‑PDF URLs (child)
+- The crawler supports `--resample-nopdf` with `--resume-baseline` to revisit URLs that were 200 but had `pdf_links_count==0`:
+
+  .venv/bin/python -m scraper.fast_scraper.crawl_external_pdfs \
+    --edm openarchives_results/edm_metadata_labeled.parquet \
+    --collections openarchives_results/collections_links_enriched_ge1k_sorted.parquet \
+    --out openarchives_results/external_pdfs.parquet \
+    --resume --resume-baseline openarchives_results/external_pdfs.parquet \
+    --resample-nopdf --concurrency 4 --timeout 12 --wait 0.3 --random-user-agent --force-http1
+
 License
 - TBD
-
